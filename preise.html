@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preise — Dardania Design</title>
+<meta name="description" content="Transparente Preise für Web Design, Logo, Branding und Social Media. Dardania Design — Kosovo & Schweiz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #06111f;
+  --ink: #0d1e30;
+  --gold: #c9973a;
+  --gold-lt: #e2b55a;
+  --cream: #f4f0e8;
+  --white: #ffffff;
+  --muted: #6b7a8d;
+  --border: rgba(201,151,58,0.2);
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body: 'Outfit', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--ff-body); background: var(--navy); color: var(--cream); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 5rem;
+  background: rgba(6,17,31,0.96); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.nav-logo-img { width: 44px; height: 44px; object-fit: contain; }
+.nav-logo-text { font-family: var(--ff-display); font-size: 1.1rem; font-weight: 500; color: var(--white); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244,240,232,0.65); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.6rem; border: 1.5px solid var(--gold); color: var(--gold); background: transparent; text-decoration: none; transition: all 0.25s; }
+.nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+/* LANG SWITCHER */
+.lang-switcher { display: flex; align-items: center; gap: 0.3rem; margin-left: 1.5rem; }
+.lang-btn { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,240,232,0.45); background: none; border: none; padding: 0.3rem 0.5rem; cursor: pointer; transition: color 0.2s; position: relative; }
+.lang-btn.active { color: var(--gold); }
+.lang-sep { color: rgba(201,151,58,0.3); font-size: 0.6rem; }
+
+/* HERO */
+.page-hero { padding: 12rem 5rem 6rem; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 80% 40%, rgba(201,151,58,0.08) 0%, transparent 65%); }
+.page-hero-inner { position: relative; z-index: 1; max-width: 700px; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.page-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.page-hero h1 { font-family: var(--ff-display); font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.06; color: var(--white); margin-bottom: 1.5rem; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero p { font-size: 1rem; font-weight: 300; line-height: 1.8; color: rgba(244,240,232,0.6); max-width: 500px; }
+
+/* DIVIDER */
+.divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+
+/* SECTION */
+.section { padding: 7rem 5rem; }
+.section-tag { display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+.section-tag::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
+h2 { font-family: var(--ff-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.12; color: var(--white); margin-bottom: 1rem; }
+h2 em { font-style: italic; color: var(--gold); }
+
+/* PRICING GRID */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 4rem; }
+.pricing-card { background: var(--ink); padding: 3rem 2.6rem; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: background 0.3s; }
+.pricing-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,151,58,0.07) 0%, transparent 55%); opacity: 0; transition: opacity 0.35s; }
+.pricing-card:hover { background: rgba(13,30,48,0.4); }
+.pricing-card:hover::before { opacity: 1; }
+.pricing-card.popular { background: rgba(201,151,58,0.06); border: 1px solid rgba(201,151,58,0.3); }
+.popular-badge { position: absolute; top: 0; right: 0; background: var(--gold); color: var(--navy); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 0.9rem; }
+.card-num { font-family: var(--ff-display); font-size: 0.78rem; color: var(--gold); opacity: 0.6; margin-bottom: 1.5rem; }
+.card-title { font-family: var(--ff-display); font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 0.4rem; }
+.card-subtitle { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.8rem; }
+.card-price { font-family: var(--ff-display); font-size: 2.8rem; font-weight: 400; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+.card-price-note { font-size: 0.75rem; color: var(--muted); font-weight: 300; margin-bottom: 2rem; }
+.card-features { list-style: none; flex: 1; margin-bottom: 2rem; }
+.card-features li { font-size: 0.86rem; color: rgba(244,240,232,0.65); font-weight: 300; line-height: 1.75; padding: 0.5rem 0; border-bottom: 1px solid rgba(201,151,58,0.08); display: flex; align-items: flex-start; gap: 0.7rem; }
+.card-features li::before { content: '—'; color: var(--gold); opacity: 0.6; flex-shrink: 0; margin-top: 0.05rem; }
+.card-cta { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid rgba(201,151,58,0.3); padding: 0.8rem 1.4rem; transition: all 0.25s; margin-top: auto; }
+.card-cta:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.popular .card-cta { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.popular .card-cta:hover { background: var(--gold-lt); }
+
+/* WEBSITE DESIGN SPECIAL */
+.pricing-card--wide { grid-column: span 2; }
+.web-subgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 1.5rem 0; }
+.web-sub { background: var(--navy); padding: 1.6rem; position: relative; }
+.web-sub--pop { background: rgba(201,151,58,0.05); }
+.web-sub-badge { position: absolute; top: 0; right: 0; background: var(--gold); color: var(--navy); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; }
+.web-sub-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.web-sub--pop .web-sub-label { color: var(--gold); }
+.web-sub-price { font-family: var(--ff-display); font-size: 1.8rem; color: var(--gold); margin-bottom: 1rem; }
+.web-note { font-size: 0.75rem; color: var(--muted); background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 0.6rem 0.9rem; margin-bottom: 1.5rem; }
+
+/* COMPARE TABLE */
+.compare-section { padding: 7rem 5rem; background: var(--ink); }
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+.compare-table th { text-align: left; padding: 1rem 1.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--border); }
+.compare-table th:first-child { width: 35%; }
+.compare-table td { padding: 1rem 1.5rem; font-size: 0.85rem; color: rgba(244,240,232,0.7); border-bottom: 1px solid rgba(201,151,58,0.06); font-weight: 300; }
+.compare-table tr:hover td { background: rgba(201,151,58,0.03); }
+.compare-table td:not(:first-child) { text-align: center; }
+.check { color: var(--gold); font-size: 1rem; }
+.cross { color: var(--muted); font-size: 0.9rem; }
+.compare-table .highlight-col { background: rgba(201,151,58,0.04); }
+.cat-row td { font-family: var(--ff-display); font-size: 0.9rem; color: var(--gold); font-style: italic; padding-top: 1.8rem; border-bottom: 1px solid var(--border); }
+
+/* FAQ */
+.faq-section { padding: 7rem 5rem; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+.faq-item { background: var(--ink); padding: 2rem 2.4rem; cursor: pointer; transition: background 0.2s; }
+.faq-item:hover { background: rgba(13,30,48,0.5); }
+.faq-q { font-size: 0.9rem; font-weight: 500; color: var(--white); margin-bottom: 0.8rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.faq-q span { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
+.faq-a { font-size: 0.83rem; color: rgba(244,240,232,0.6); line-height: 1.75; font-weight: 300; }
+
+/* CTA SECTION */
+.cta-section { padding: 7rem 5rem; text-align: center; background: var(--ink); }
+.cta-section h2 { margin-bottom: 1rem; }
+.cta-section p { font-size: 1rem; color: rgba(244,240,232,0.6); font-weight: 300; margin-bottom: 2.5rem; }
+.btn-gold { padding: 1rem 2.4rem; background: var(--gold); color: var(--navy); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background 0.25s; }
+.btn-gold:hover { background: var(--gold-lt); }
+
+/* FOOTER */
+footer { padding: 2.5rem 5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.5rem; }
+.footer-logo img { width: 36px; height: 36px; object-fit: contain; }
+.footer-logo-text { font-family: var(--ff-display); font-size: 1rem; font-weight: 500; color: var(--white); }
+.footer-copy { font-size: 0.72rem; color: var(--muted); }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 1.2rem 2.5rem; }
+  .page-hero, .section, .compare-section, .faq-section, .cta-section { padding: 7rem 2.5rem; }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-card--wide { grid-column: span 2; }
+  footer { padding: 2rem 2.5rem; }
+}
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-logo-text { display: none; }
+  .page-hero, .section, .compare-section, .faq-section, .cta-section { padding: 6rem 1.2rem 3rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card--wide { grid-column: span 1; }
+  .web-subgrid { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  footer { padding: 1.5rem 1.2rem; flex-direction: column; align-items: flex-start; }
+  .compare-table { font-size: 0.78rem; }
+  .compare-table th, .compare-table td { padding: 0.7rem 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Dardania Design" class="nav-logo-img" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Dardania Design</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+    <li><a href="index.html#about" data-i18n="nav-about">Über uns</a></li>
+    <li><a href="portfolio.html" data-i18n="nav-portfolio">Portfolio</a></li>
+    <li><a href="preise.html" class="active" data-i18n="nav-pricing">Preise</a></li>
+    <li><a href="index.html#contact" data-i18n="nav-contact">Kontakt</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="de">DE</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="al">SQ</button>
+  </div>
+  <a href="index.html#contact" class="nav-cta" data-i18n="nav-cta">Projekt starten</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow" data-i18n="price-eyebrow">Transparente Preise</div>
+    <h1 data-i18n="price-hero-h1">Faire <em>Preise</em> für<br>kreative Arbeit</h1>
+    <p data-i18n="price-hero-p">Keine versteckten Kosten, keine Überraschungen. Alle Preise in CHF, exkl. MwSt.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="section-tag reveal" data-i18n="price-tag">Preise</div>
+  <h2 class="reveal d1" data-i18n="price-h2-page">Unsere <em>Pakete</em></h2>
+
+  <div class="pricing-grid">
+
+    <!-- Logo Design -->
+    <div class="pricing-card reveal">
+      <div class="card-num">01</div>
+      <div class="card-title" data-i18n="p1-title">Logo Design</div>
+      <div class="card-subtitle" data-i18n="p1-sub">Einmaliges Projekt</div>
+      <div class="card-price">400 CHF</div>
+      <div class="card-price-note" data-i18n="p-from">ab</div>
+      <ul class="card-features">
+        <li data-i18n="p1-f1">Logo in 3 Varianten</li>
+        <li data-i18n="p1-f2">2 Revisionen inklusive</li>
+        <li data-i18n="p1-f3">Alle Dateiformate (PNG, SVG, PDF)</li>
+        <li data-i18n="p1-f4">Lieferung innert 5 Werktagen</li>
+        <li data-i18n="p1-f5">Vollständige Nutzungsrechte</li>
+      </ul>
+      <a href="index.html#contact" class="card-cta" data-i18n="p-cta">Anfragen →</a>
+    </div>
+
+    <!-- Logo + Branding -->
+    <div class="pricing-card reveal d1">
+      <div class="card-num">02</div>
+      <div class="card-title" data-i18n="p2-title">Logo + Branding</div>
+      <div class="card-subtitle" data-i18n="p2-sub">Komplettes Markenpaket</div>
+      <div class="card-price">650 CHF</div>
+      <div class="card-price-note" data-i18n="p-from">ab</div>
+      <ul class="card-features">
+        <li data-i18n="p2-f1">Logo in 3 Varianten</li>
+        <li data-i18n="p2-f2">Farbpalette & Typografie</li>
+        <li data-i18n="p2-f3">Visitenkarte Design</li>
+        <li data-i18n="p2-f4">Brand Guidelines (PDF)</li>
+        <li data-i18n="p2-f5">3 Revisionen inklusive</li>
+        <li data-i18n="p2-f6">Alle Dateiformate</li>
+      </ul>
+      <a href="index.html#contact" class="card-cta" data-i18n="p-cta">Anfragen →</a>
+    </div>
+
+    <!-- Social Media -->
+    <div class="pricing-card reveal d2">
+      <div class="card-num">03</div>
+      <div class="card-title" data-i18n="p3-title">Instagram & TikTok Setup</div>
+      <div class="card-subtitle" data-i18n="p3-sub">Einmaliger Preis</div>
+      <div class="card-price">300 CHF</div>
+      <div class="card-price-note" data-i18n="p3-once">Einmalig</div>
+      <ul class="card-features">
+        <li data-i18n="p3-f1">Profil erstellen & vollständig einrichten</li>
+        <li data-i18n="p3-f2">Bio, Profilbild & Link in Bio optimiert</li>
+        <li data-i18n="p3-f3">Einheitliches Design & Highlights</li>
+        <li data-i18n="p3-f4">Erste 3 Posts als Starter-Content</li>
+        <li data-i18n="p3-f5">Kurze Einführung inklusive</li>
+      </ul>
+      <a href="index.html#contact" class="card-cta" data-i18n="p-cta">Anfragen →</a>
+    </div>
+
+    <!-- Website Design WIDE -->
+    <div class="pricing-card pricing-card--wide reveal">
+      <div class="card-num">04</div>
+      <div class="card-title" data-i18n="p4-title">Website Design</div>
+      <div class="card-subtitle" data-i18n="p4-sub">Wähle dein Paket</div>
+      <div class="web-subgrid">
+        <div class="web-sub">
+          <div class="web-sub-label" data-i18n="p4-basic">Basic</div>
+          <div class="web-sub-price">990 CHF</div>
+          <ul class="card-features">
+            <li data-i18n="p4-b1">One Pager</li>
+            <li data-i18n="p4-b2">SEO Einstellungen</li>
+            <li data-i18n="p4-b3">Kontaktformular</li>
+            <li data-i18n="p4-b4">Für KMU & Restaurants</li>
+          </ul>
+        </div>
+        <div class="web-sub web-sub--pop">
+          <div class="web-sub-badge" data-i18n="p4-pop">Beliebt</div>
+          <div class="web-sub-label" data-i18n="p4-premium">Premium</div>
+          <div class="web-sub-price">1'200 CHF</div>
+          <ul class="card-features">
+            <li data-i18n="p4-p1">1–5 Seiten</li>
+            <li data-i18n="p4-p2">SEO + Design</li>
+            <li data-i18n="p4-p3">Mehrsprachig möglich</li>
+            <li data-i18n="p4-p4">Restaurants + KMU</li>
+          </ul>
+        </div>
+      </div>
+      <div class="web-note" data-i18n="p4-note">· Hosting & Domain separat — wir helfen dabei</div>
+      <a href="index.html#contact" class="card-cta" data-i18n="p-cta">Anfragen →</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPARE TABLE -->
+<section class="compare-section">
+  <div class="section-tag reveal" data-i18n="compare-tag">Vergleich</div>
+  <h2 class="reveal d1" data-i18n="compare-h2">Was ist in jedem <em>Paket</em> enthalten?</h2>
+
+  <table class="compare-table reveal d2">
+    <thead>
+      <tr>
+        <th data-i18n="cmp-feature">Leistung</th>
+        <th data-i18n="cmp-logo">Logo</th>
+        <th data-i18n="cmp-brand">Logo + Branding</th>
+        <th data-i18n="cmp-web-b">Web Basic</th>
+        <th data-i18n="cmp-web-p">Web Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cat-row"><td colspan="5" data-i18n="cmp-cat1">Design</td></tr>
+      <tr>
+        <td data-i18n="cmp-logo-design">Logo Design</td>
+        <td><span class="check">✓</span></td>
+        <td class="highlight-col"><span class="check">✓</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-colors">Farbpalette & Typografie</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="check">✓</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-card">Visitenkarte Design</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="check">✓</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-guidelines">Brand Guidelines</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="check">✓</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+      </tr>
+      <tr class="cat-row"><td colspan="5" data-i18n="cmp-cat2">Website</td></tr>
+      <tr>
+        <td data-i18n="cmp-responsive">Responsive Design</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="cross">—</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-seo">SEO Grundlagen</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="cross">—</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-pages">Bis 5 Seiten</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-multi">Mehrsprachig</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr class="cat-row"><td colspan="5" data-i18n="cmp-cat3">Service</td></tr>
+      <tr>
+        <td data-i18n="cmp-revisions">Revisionen</td>
+        <td>2</td>
+        <td class="highlight-col">3</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-formats">Alle Dateiformate</td>
+        <td><span class="check">✓</span></td>
+        <td class="highlight-col"><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td data-i18n="cmp-support">Support nach Lieferung</td>
+        <td><span class="cross">—</span></td>
+        <td class="highlight-col"><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-tag reveal" data-i18n="faq-tag">FAQ</div>
+  <h2 class="reveal d1" data-i18n="faq-h2">Häufige <em>Fragen</em></h2>
+  <div class="faq-grid reveal d2">
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq1-q">Wie lange dauert ein Projekt?</span> <span>+</span></div>
+      <div class="faq-a" data-i18n="faq1-a">Ein Logo-Projekt dauert typischerweise 5–7 Werktage. Ein Branding-Paket 2–3 Wochen. Eine Website 3–6 Wochen je nach Umfang.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq2-q">Wie läuft die Bezahlung ab?</span> <span>+</span></div>
+      <div class="faq-a" data-i18n="faq2-a">50% Anzahlung bei Projektstart, 50% bei Lieferung. Wir akzeptieren Banküberweisung und TWINT.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq3-q">Was wenn ich mehr Revisionen brauche?</span> <span>+</span></div>
+      <div class="faq-a" data-i18n="faq3-a">Zusätzliche Revisionen können gegen ein kleines Entgelt hinzugebucht werden. Wir klären das immer transparent im Voraus.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq4-q">Arbeitet ihr auch mit Kunden aus dem Ausland?</span> <span>+</span></div>
+      <div class="faq-a" data-i18n="faq4-a">Ja! Wir arbeiten remote mit Kunden aus ganz Europa. Die Kommunikation läuft per E-Mail, WhatsApp oder Videocall.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq5-q">Gehören mir die fertigen Dateien?</span> <span>+</span></div>
+      <div class="faq-a" data-i18n="faq5-a">Ja, nach vollständiger Bezahlung erhalten Sie alle Dateien mit vollständigen Nutzungsrechten.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq6-q">Gibt es individuelle Angebote?</span> <span>+</span></div>
+      <div class="faq-a" data-i18n="faq6-a">Absolut! Jedes Projekt ist einzigartig. Kontaktieren Sie uns für ein massgeschneidertes Angebot.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-tag" style="justify-content:center" data-i18n="cta-tag">Bereit?</div>
+  <h2 data-i18n="cta-h2">Starten wir <em>zusammen</em></h2>
+  <p data-i18n="cta-p">Kostenloses Erstgespräch — kein Risiko, keine Verpflichtung.</p>
+  <a href="index.html#contact" class="btn-gold" data-i18n="cta-btn">Projekt anfragen →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/logo.png" alt="Dardania Design" onerror="this.style.display='none'">
+    <span class="footer-logo-text">Dardania Design</span>
+  </div>
+  <span class="footer-copy" data-i18n="footer-copy">© 2025 Dardania Design. Alle Rechte vorbehalten.</span>
+  <ul class="footer-links">
+    <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+    <li><a href="portfolio.html" data-i18n="nav-portfolio">Portfolio</a></li>
+    <li><a href="index.html#contact" data-i18n="nav-contact">Kontakt</a></li>
+  </ul>
+</footer>
+
+<script>
+// REVEAL
+const io = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// TRANSLATIONS
+const t = {
+  de: {
+    'nav-home':'Home','nav-about':'Über uns','nav-portfolio':'Portfolio','nav-pricing':'Preise','nav-contact':'Kontakt','nav-cta':'Projekt starten',
+    'price-eyebrow':'Transparente Preise','price-hero-h1':'Faire <em>Preise</em> für<br>kreative Arbeit','price-hero-p':'Keine versteckten Kosten, keine Überraschungen. Alle Preise in CHF, exkl. MwSt.',
+    'price-tag':'Preise','price-h2-page':'Unsere <em>Pakete</em>',
+    'p1-title':'Logo Design','p1-sub':'Einmaliges Projekt','p-from':'ab','p1-f1':'Logo in 3 Varianten','p1-f2':'2 Revisionen inklusive','p1-f3':'Alle Dateiformate (PNG, SVG, PDF)','p1-f4':'Lieferung innert 5 Werktagen','p1-f5':'Vollständige Nutzungsrechte',
+    'p2-title':'Logo + Branding','p2-sub':'Komplettes Markenpaket','p2-f1':'Logo in 3 Varianten','p2-f2':'Farbpalette & Typografie','p2-f3':'Visitenkarte Design','p2-f4':'Brand Guidelines (PDF)','p2-f5':'3 Revisionen inklusive','p2-f6':'Alle Dateiformate',
+    'p3-title':'Instagram & TikTok Setup','p3-sub':'Einmaliger Preis','p3-once':'Einmalig','p3-f1':'Profil erstellen & vollständig einrichten','p3-f2':'Bio, Profilbild & Link in Bio optimiert','p3-f3':'Einheitliches Design & Highlights','p3-f4':'Erste 3 Posts als Starter-Content','p3-f5':'Kurze Einführung inklusive',
+    'p4-title':'Website Design','p4-sub':'Wähle dein Paket','p4-basic':'Basic','p4-pop':'Beliebt','p4-premium':'Premium','p4-b1':'One Pager','p4-b2':'SEO Einstellungen','p4-b3':'Kontaktformular','p4-b4':'Für KMU & Restaurants','p4-p1':'1–5 Seiten','p4-p2':'SEO + Design','p4-p3':'Mehrsprachig möglich','p4-p4':'Restaurants + KMU','p4-note':'· Hosting & Domain separat — wir helfen dabei',
+    'p-cta':'Anfragen →',
+    'compare-tag':'Vergleich','compare-h2':'Was ist in jedem <em>Paket</em> enthalten?','cmp-feature':'Leistung','cmp-logo':'Logo','cmp-brand':'Logo + Branding','cmp-web-b':'Web Basic','cmp-web-p':'Web Premium','cmp-cat1':'Design','cmp-logo-design':'Logo Design','cmp-colors':'Farbpalette & Typografie','cmp-card':'Visitenkarte Design','cmp-guidelines':'Brand Guidelines','cmp-cat2':'Website','cmp-responsive':'Responsive Design','cmp-seo':'SEO Grundlagen','cmp-pages':'Bis 5 Seiten','cmp-multi':'Mehrsprachig','cmp-cat3':'Service','cmp-revisions':'Revisionen','cmp-formats':'Alle Dateiformate','cmp-support':'Support nach Lieferung',
+    'faq-tag':'FAQ','faq-h2':'Häufige <em>Fragen</em>','faq1-q':'Wie lange dauert ein Projekt?','faq1-a':'Ein Logo-Projekt dauert typischerweise 5–7 Werktage. Ein Branding-Paket 2–3 Wochen. Eine Website 3–6 Wochen je nach Umfang.','faq2-q':'Wie läuft die Bezahlung ab?','faq2-a':'50% Anzahlung bei Projektstart, 50% bei Lieferung. Wir akzeptieren Banküberweisung und TWINT.','faq3-q':'Was wenn ich mehr Revisionen brauche?','faq3-a':'Zusätzliche Revisionen können gegen ein kleines Entgelt hinzugebucht werden. Wir klären das immer transparent im Voraus.','faq4-q':'Arbeitet ihr auch mit Kunden aus dem Ausland?','faq4-a':'Ja! Wir arbeiten remote mit Kunden aus ganz Europa. Die Kommunikation läuft per E-Mail, WhatsApp oder Videocall.','faq5-q':'Gehören mir die fertigen Dateien?','faq5-a':'Ja, nach vollständiger Bezahlung erhalten Sie alle Dateien mit vollständigen Nutzungsrechten.','faq6-q':'Gibt es individuelle Angebote?','faq6-a':'Absolut! Jedes Projekt ist einzigartig. Kontaktieren Sie uns für ein massgeschneidertes Angebot.',
+    'cta-tag':'Bereit?','cta-h2':'Starten wir <em>zusammen</em>','cta-p':'Kostenloses Erstgespräch — kein Risiko, keine Verpflichtung.','cta-btn':'Projekt anfragen →',
+    'footer-copy':'© 2025 Dardania Design. Alle Rechte vorbehalten.'
+  },
+  fr: {
+    'nav-home':'Accueil','nav-about':'À propos','nav-portfolio':'Portfolio','nav-pricing':'Tarifs','nav-contact':'Contact','nav-cta':'Démarrer un projet',
+    'price-eyebrow':'Tarifs transparents','price-hero-h1':'Des <em>tarifs</em> justes pour<br>un travail créatif','price-hero-p':'Pas de coûts cachés, pas de surprises. Tous les prix en CHF, TVA excl.',
+    'price-tag':'Tarifs','price-h2-page':'Nos <em>forfaits</em>',
+    'p1-title':'Logo Design','p1-sub':'Projet unique','p-from':'dès','p1-f1':'Logo en 3 variantes','p1-f2':'2 révisions incluses','p1-f3':'Tous les formats (PNG, SVG, PDF)','p1-f4':'Livraison en 5 jours ouvrables','p1-f5':'Droits d\'utilisation complets',
+    'p2-title':'Logo + Branding','p2-sub':'Pack marque complet','p2-f1':'Logo en 3 variantes','p2-f2':'Palette de couleurs & typographie','p2-f3':'Design carte de visite','p2-f4':'Brand Guidelines (PDF)','p2-f5':'3 révisions incluses','p2-f6':'Tous les formats',
+    'p3-title':'Instagram & TikTok Setup','p3-sub':'Prix unique','p3-once':'Unique','p3-f1':'Créer & configurer le profil entièrement','p3-f2':'Bio, photo de profil & Link in Bio optimisés','p3-f3':'Design unifié & Highlights','p3-f4':'3 premiers posts en Starter-Content','p3-f5':'Courte introduction incluse',
+    'p4-title':'Website Design','p4-sub':'Choisissez votre forfait','p4-basic':'Basic','p4-pop':'Populaire','p4-premium':'Premium','p4-b1':'One Pager','p4-b2':'Paramètres SEO','p4-b3':'Formulaire de contact','p4-b4':'Pour PME & restaurants','p4-p1':'1–5 pages','p4-p2':'SEO + Design','p4-p3':'Multilingue possible','p4-p4':'Restaurants + PME','p4-note':'· Hébergement & domaine en sus — nous vous aidons',
+    'p-cta':'Demander →',
+    'compare-tag':'Comparaison','compare-h2':'Que contient chaque <em>forfait</em>?','cmp-feature':'Prestation','cmp-logo':'Logo','cmp-brand':'Logo + Branding','cmp-web-b':'Web Basic','cmp-web-p':'Web Premium','cmp-cat1':'Design','cmp-logo-design':'Logo Design','cmp-colors':'Palette & Typographie','cmp-card':'Carte de visite','cmp-guidelines':'Brand Guidelines','cmp-cat2':'Site web','cmp-responsive':'Design responsive','cmp-seo':'Bases SEO','cmp-pages':'Jusqu\'à 5 pages','cmp-multi':'Multilingue','cmp-cat3':'Service','cmp-revisions':'Révisions','cmp-formats':'Tous les formats','cmp-support':'Support après livraison',
+    'faq-tag':'FAQ','faq-h2':'Questions <em>fréquentes</em>','faq1-q':'Combien de temps dure un projet?','faq1-a':'Un logo prend typiquement 5–7 jours ouvrables. Un pack branding 2–3 semaines. Un site web 3–6 semaines selon l\'ampleur.','faq2-q':'Comment se passe le paiement?','faq2-a':'50% d\'acompte au démarrage, 50% à la livraison. Nous acceptons les virements bancaires.','faq3-q':'Que faire si j\'ai besoin de plus de révisions?','faq3-a':'Des révisions supplémentaires peuvent être ajoutées moyennant un petit supplément, toujours discuté en amont.','faq4-q':'Travaillez-vous avec des clients à l\'étranger?','faq4-a':'Oui! Nous travaillons à distance avec des clients de toute l\'Europe. Communication par e-mail, WhatsApp ou visioconférence.','faq5-q':'Les fichiers m\'appartiennent-ils?','faq5-a':'Oui, après paiement complet vous recevez tous les fichiers avec droits d\'utilisation complets.','faq6-q':'Faites-vous des offres sur mesure?','faq6-a':'Absolument! Chaque projet est unique. Contactez-nous pour un devis personnalisé.',
+    'cta-tag':'Prêt?','cta-h2':'Commençons <em>ensemble</em>','cta-p':'Premier entretien gratuit — sans risque, sans engagement.','cta-btn':'Demander un projet →',
+    'footer-copy':'© 2025 Dardania Design. Tous droits réservés.'
+  },
+  en: {
+    'nav-home':'Home','nav-about':'About','nav-portfolio':'Portfolio','nav-pricing':'Pricing','nav-contact':'Contact','nav-cta':'Start a project',
+    'price-eyebrow':'Transparent pricing','price-hero-h1':'Fair <em>prices</em> for<br>creative work','price-hero-p':'No hidden costs, no surprises. All prices in CHF, excl. VAT.',
+    'price-tag':'Pricing','price-h2-page':'Our <em>packages</em>',
+    'p1-title':'Logo Design','p1-sub':'One-time project','p-from':'from','p1-f1':'Logo in 3 variants','p1-f2':'2 revisions included','p1-f3':'All file formats (PNG, SVG, PDF)','p1-f4':'Delivery within 5 working days','p1-f5':'Full usage rights',
+    'p2-title':'Logo + Branding','p2-sub':'Complete brand package','p2-f1':'Logo in 3 variants','p2-f2':'Colour palette & typography','p2-f3':'Business card design','p2-f4':'Brand guidelines (PDF)','p2-f5':'3 revisions included','p2-f6':'All file formats',
+    'p3-title':'Instagram & TikTok Setup','p3-sub':'One-time price','p3-once':'One-time','p3-f1':'Create & fully set up profile','p3-f2':'Bio, profile picture & Link in Bio optimised','p3-f3':'Consistent design & Highlights','p3-f4':'First 3 posts as Starter Content','p3-f5':'Short introduction included',
+    'p4-title':'Website Design','p4-sub':'Choose your package','p4-basic':'Basic','p4-pop':'Popular','p4-premium':'Premium','p4-b1':'One Pager','p4-b2':'SEO settings','p4-b3':'Contact form','p4-b4':'For SMEs & restaurants','p4-p1':'1–5 pages','p4-p2':'SEO + Design','p4-p3':'Multilingual possible','p4-p4':'Restaurants + SMEs','p4-note':'· Hosting & domain separate — we help with that',
+    'p-cta':'Enquire →',
+    'compare-tag':'Comparison','compare-h2':'What\'s included in each <em>package</em>?','cmp-feature':'Feature','cmp-logo':'Logo','cmp-brand':'Logo + Branding','cmp-web-b':'Web Basic','cmp-web-p':'Web Premium','cmp-cat1':'Design','cmp-logo-design':'Logo Design','cmp-colors':'Colour palette & typography','cmp-card':'Business card design','cmp-guidelines':'Brand guidelines','cmp-cat2':'Website','cmp-responsive':'Responsive design','cmp-seo':'SEO basics','cmp-pages':'Up to 5 pages','cmp-multi':'Multilingual','cmp-cat3':'Service','cmp-revisions':'Revisions','cmp-formats':'All file formats','cmp-support':'Support after delivery',
+    'faq-tag':'FAQ','faq-h2':'Frequently asked <em>questions</em>','faq1-q':'How long does a project take?','faq1-a':'A logo project typically takes 5–7 working days. A branding package 2–3 weeks. A website 3–6 weeks depending on scope.','faq2-q':'How does payment work?','faq2-a':'50% deposit at project start, 50% on delivery. We accept bank transfer.','faq3-q':'What if I need more revisions?','faq3-a':'Additional revisions can be added for a small fee, always discussed transparently in advance.','faq4-q':'Do you work with clients abroad?','faq4-a':'Yes! We work remotely with clients across Europe. Communication via email, WhatsApp or video call.','faq5-q':'Do I own the finished files?','faq5-a':'Yes, after full payment you receive all files with complete usage rights.','faq6-q':'Do you offer custom quotes?','faq6-a':'Absolutely! Every project is unique. Contact us for a tailor-made offer.',
+    'cta-tag':'Ready?','cta-h2':'Let\'s start <em>together</em>','cta-p':'Free initial consultation — no risk, no obligation.','cta-btn':'Request a project →',
+    'footer-copy':'© 2025 Dardania Design. All rights reserved.'
+  },
+  al: {
+    'nav-home':'Kryefaqja','nav-about':'Rreth nesh','nav-portfolio':'Portfolio','nav-pricing':'Çmimet','nav-contact':'Kontakt','nav-cta':'Fillo projektin',
+    'price-eyebrow':'Çmime transparente','price-hero-h1':'Çmime <em>të drejta</em> për<br>punë kreative','price-hero-p':'Pa kosto të fshehura, pa surpriza. Të gjitha çmimet në CHF, pa TVSH.',
+    'price-tag':'Çmimet','price-h2-page':'Paketat <em>tona</em>',
+    'p1-title':'Logo Design','p1-sub':'Projekt njëherësh','p-from':'ab','p1-f1':'Logo në 3 variante','p1-f2':'2 rishikime të përfshira','p1-f3':'Të gjitha formatet (PNG, SVG, PDF)','p1-f4':'Dorëzim brenda 5 ditëve pune','p1-f5':'Të drejta të plota të përdorimit',
+    'p2-title':'Logo + Branding','p2-sub':'Paket i plotë i markës','p2-f1':'Logo në 3 variante','p2-f2':'Paleta ngjyrash & tipografi','p2-f3':'Dizajn kartëvizite','p2-f4':'Brand Guidelines (PDF)','p2-f5':'3 rishikime të përfshira','p2-f6':'Të gjitha formatet',
+    'p3-title':'Instagram & TikTok Setup','p3-sub':'Çmim njëherësh','p3-once':'Njëherësh','p3-f1':'Krijim & konfigurim i plotë i profilit','p3-f2':'Bio, foto profili & Link in Bio i optimizuar','p3-f3':'Dizajn i unifikuar & Highlights','p3-f4':'3 postimet e para si Starter-Content','p3-f5':'Prezantim i shkurtër i përfshirë',
+    'p4-title':'Website Design','p4-sub':'Zgjidhni paketën tuaj','p4-basic':'Basic','p4-pop':'I preferuar','p4-premium':'Premium','p4-b1':'One Pager','p4-b2':'Cilësimet SEO','p4-b3':'Formular kontakti','p4-b4':'Për biznese & restorante','p4-p1':'1–5 faqe','p4-p2':'SEO + Dizajn','p4-p3':'Shumëgjuhësh i mundshëm','p4-p4':'Restorante + biznese','p4-note':'· Hosting & Domain veçmas — ju ndihmojmë',
+    'p-cta':'Kërko ofertë →',
+    'compare-tag':'Krahasim','compare-h2':'Çfarë përfshin çdo <em>paket</em>?','cmp-feature':'Shërbimi','cmp-logo':'Logo','cmp-brand':'Logo + Branding','cmp-web-b':'Web Basic','cmp-web-p':'Web Premium','cmp-cat1':'Dizajn','cmp-logo-design':'Logo Design','cmp-colors':'Paleta & Tipografi','cmp-card':'Kartëvizitë','cmp-guidelines':'Brand Guidelines','cmp-cat2':'Uebfaqe','cmp-responsive':'Dizajn responsive','cmp-seo':'Bazat SEO','cmp-pages':'Deri në 5 faqe','cmp-multi':'Shumëgjuhësh','cmp-cat3':'Shërbim','cmp-revisions':'Rishikime','cmp-formats':'Të gjitha formatet','cmp-support':'Mbështetje pas dorëzimit',
+    'faq-tag':'FAQ','faq-h2':'Pyetje të <em>shpeshta</em>','faq1-q':'Sa kohë zgjat një projekt?','faq1-a':'Një logo zakonisht zgjat 5–7 ditë pune. Një paket branding 2–3 javë. Një uebfaqe 3–6 javë sipas madhësisë.','faq2-q':'Si funksionon pagesa?','faq2-a':'50% paradhënie në fillim, 50% në dorëzim. Pranojmë transfertë bankare dhe TWINT.','faq3-q':'Çfarë nëse nevojiten më shumë rishikime?','faq3-a':'Rishikime shtesë mund të shtohen me një tarifë të vogël, gjithmonë të diskutuara transparentisht paraprakisht.','faq4-q':'A punoni me klientë nga jashtë?','faq4-a':'Po! Punojmë nga distanca me klientë nga e gjithë Europa. Komunikimi bëhet me email, WhatsApp ose videocall.','faq5-q':'A janë të miat dosjet finale?','faq5-a':'Po, pas pagesës së plotë merrni të gjitha dosjet me të drejta të plota të përdorimit.','faq6-q':'A ka oferta individuale?','faq6-a':'Absolutisht! Çdo projekt është unik. Na kontaktoni për një ofertë të personalizuar.',
+    'cta-tag':'Gati?','cta-h2':'Fillojmë <em>bashkë</em>','cta-p':'Bisedë e parë falas — pa rrezik, pa detyrim.','cta-btn':'Kërko projekt →',
+    'footer-copy':'© 2025 Dardania Design. Të gjitha të drejtat e rezervuara.'
+  }
+};
+
+function applyLang(lang) {
+  const tr = t[lang]; if(!tr) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if(tr[k]) el.innerHTML = tr[k];
+  });
+  document.documentElement.lang = {de:'de',fr:'fr',en:'en',al:'sq'}[lang] || lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('dd-lang', lang); } catch(e){}
+}
+
+document.addEventListener('click', e => {
+  if(e.target.matches('.lang-btn')) applyLang(e.target.dataset.lang);
+});
+
+let saved = 'de';
+try { saved = localStorage.getItem('dd-lang') || 'de'; } catch(e){}
+applyLang(saved);
+</script>
+</body>
+</html>
