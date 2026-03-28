@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="images/Design ohne Titel(17).png">
+<link rel="apple-touch-icon" href="images/Design ohne Titel(17).png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Web Design & Branding Projekte | Dardania Design</title>
+<meta name="description" content="Portfolio von Dardania Design — Web Design, Logo & Branding Projekte aus der Schweiz und Kosovo. Referenzen: Loco Tapas, Reno Comfort, Flame Glass und mehr.">
+<meta name="keywords" content="Portfolio Web Design Schweiz, Branding Projekte Schweiz, Logo Design Portfolio, Referenzen Web Design Kosovo, Dardania Design Portfolio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.dardaniadesign.com/portfolio.html">
+<meta name="google-site-verification" content="1nx-nc3KUoQjJrNr3bX9anq3MHo5JzAmh7KoHEcoMbk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #06111f; --ink: #0d1e30; --gold: #c9973a; --gold-lt: #e2b55a;
+  --cream: #f4f0e8; --white: #ffffff; --muted: #6b7a8d;
+  --border: rgba(201,151,58,0.2);
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body: 'Outfit', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--ff-body); background: var(--navy); color: var(--cream); overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 5rem; background: rgba(6,17,31,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.nav-logo-img { width: 44px; height: 44px; object-fit: contain; }
+.nav-logo-text { font-family: var(--ff-display); font-size: 1.1rem; font-weight: 500; color: var(--white); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244,240,232,0.65); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.6rem; border: 1.5px solid var(--gold); color: var(--gold); background: transparent; text-decoration: none; transition: all 0.25s; }
+.nav-cta:hover { background: var(--gold); color: var(--navy); }
+.lang-switcher { display: flex; align-items: center; gap: 0.3rem; margin-left: 1.5rem; }
+.lang-btn { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,240,232,0.45); background: none; border: none; padding: 0.3rem 0.5rem; cursor: pointer; transition: color 0.2s; }
+.lang-btn.active { color: var(--gold); }
+.lang-sep { color: rgba(201,151,58,0.3); font-size: 0.6rem; }
+
+/* HERO */
+.page-hero { padding: 12rem 5rem 6rem; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 20% 60%, rgba(201,151,58,0.07) 0%, transparent 65%); }
+.page-hero-inner { position: relative; z-index: 1; max-width: 700px; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.page-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.page-hero h1 { font-family: var(--ff-display); font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.06; color: var(--white); margin-bottom: 1.5rem; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero p { font-size: 1rem; font-weight: 300; line-height: 1.8; color: rgba(244,240,232,0.6); max-width: 500px; }
+
+/* DIVIDER */
+.divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+
+/* FILTER */
+.filter-section { padding: 3rem 5rem 0; }
+.filter-bar { display: flex; gap: 0; border: 1px solid var(--border); overflow-x: auto; width: fit-content; }
+.filter-btn { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.75rem 1.8rem; background: none; border: none; border-right: 1px solid var(--border); color: rgba(244,240,232,0.5); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.filter-btn:last-child { border-right: none; }
+.filter-btn:hover { color: var(--cream); background: rgba(201,151,58,0.05); }
+.filter-btn.active { color: var(--gold); background: rgba(201,151,58,0.08); }
+.filter-count { font-size: 0.6rem; color: var(--muted); margin-left: 0.4rem; }
+
+/* PORTFOLIO GRID */
+.portfolio-section { padding: 3rem 5rem 7rem; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.proj-card { background: var(--navy); position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
+.proj-card:hover { background: rgba(6,17,31,0.5); }
+.proj-card.hidden { display: none; }
+.proj-card.featured { grid-column: span 2; }
+.proj-inner { padding: 3rem 2.8rem; }
+.proj-card.featured .proj-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.proj-num { font-family: var(--ff-display); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.9rem; display: block; }
+.proj-tag-badge { display: inline-block; font-size: 0.62rem; letter-spacing: 0.17em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,151,58,0.3); padding: 0.28rem 0.75rem; margin-bottom: 1.3rem; }
+.proj-name { font-family: var(--ff-display); font-size: clamp(1.5rem, 3vw, 2.3rem); font-weight: 400; color: var(--white); margin-bottom: 0.9rem; line-height: 1.15; }
+.proj-desc { font-size: 0.84rem; line-height: 1.75; color: rgba(244,240,232,0.55); font-weight: 300; margin-bottom: 1.5rem; }
+.proj-services { font-size: 0.78rem; color: rgba(244,240,232,0.45); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
+.proj-link { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.73rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: gap 0.2s; }
+.proj-link:hover { gap: 1rem; }
+
+/* IMAGE AREA */
+.proj-img-area { position: relative; overflow: hidden; background: var(--ink); border: 1px solid var(--border); }
+.proj-img-area img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s var(--ease); }
+.proj-card:hover .proj-img-area img { transform: scale(1.03); }
+.proj-img-placeholder { width: 100%; aspect-ratio: 16/10; background: var(--ink); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; }
+.proj-img-placeholder span { font-family: var(--ff-display); font-size: 1rem; font-style: italic; color: rgba(201,151,58,0.3); }
+.proj-img-placeholder small { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+/* BEFORE/AFTER */
+.before-after { position: relative; overflow: hidden; aspect-ratio: 16/9; }
+.before-after img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.before-after .after { clip-path: inset(0 50% 0 0); transition: clip-path 0.1s; }
+.before-after-slider { position: absolute; inset: 0; -webkit-appearance: none; appearance: none; width: 100%; height: 100%; background: transparent; cursor: ew-resize; z-index: 10; }
+.before-after-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--gold); transform: translateX(-50%); pointer-events: none; z-index: 9; }
+.before-after-line::before, .before-after-line::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 36px; height: 36px; background: var(--gold); border-radius: 50%; top: 50%; margin-top: -18px; display: flex; align-items: center; justify-content: center; }
+.ba-labels { position: absolute; bottom: 0.8rem; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 1rem; z-index: 8; pointer-events: none; }
+.ba-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(6,17,31,0.8); color: var(--cream); padding: 0.25rem 0.6rem; }
+
+/* IMAGE GRID */
+.img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 1.5rem; }
+.img-grid-2 img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.5s var(--ease); }
+.proj-card:hover .img-grid-2 img { transform: scale(1.03); }
+.img-single { margin-top: 1.5rem; border: 1px solid var(--border); overflow: hidden; background: var(--ink); }
+.img-single img { width: 100%; display: block; max-height: 280px; object-fit: contain; padding: 1.5rem; transition: transform 0.5s var(--ease); }
+.proj-card:hover .img-single img { transform: scale(1.03); }
+
+/* STATS BAR */
+.stats-bar { display: flex; gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 4rem 5rem; background: var(--ink); }
+.stat-item { flex: 1; padding: 2rem; border-right: 1px solid var(--border); text-align: center; }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: var(--ff-display); font-size: 2.5rem; color: var(--gold); font-weight: 400; }
+.stat-lbl { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+
+/* CTA */
+.cta-section { padding: 7rem 5rem; text-align: center; background: var(--ink); }
+.cta-section h2 { font-family: var(--ff-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; color: var(--white); margin-bottom: 1rem; }
+.cta-section h2 em { font-style: italic; color: var(--gold); }
+.cta-section p { font-size: 1rem; color: rgba(244,240,232,0.6); font-weight: 300; margin-bottom: 2.5rem; }
+.btn-gold { padding: 1rem 2.4rem; background: var(--gold); color: var(--navy); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background 0.25s; }
+.btn-gold:hover { background: var(--gold-lt); }
+
+/* FOOTER */
+footer { padding: 2.5rem 5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.5rem; }
+.footer-logo img { width: 36px; height: 36px; object-fit: contain; }
+.footer-logo-text { font-family: var(--ff-display); font-size: 1rem; font-weight: 500; color: var(--white); }
+.footer-copy { font-size: 0.72rem; color: var(--muted); }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 1.2rem 2.5rem; }
+  .page-hero, .filter-section, .portfolio-section, .cta-section { padding-left: 2.5rem; padding-right: 2.5rem; }
+  .stats-bar { margin: 3rem 2.5rem; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .proj-card.featured { grid-column: span 1; }
+  .proj-card.featured .proj-inner { grid-template-columns: 1fr; gap: 2rem; }
+  footer { padding: 2rem 2.5rem; }
+}
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-logo-text { display: none; }
+  .page-hero { padding: 6rem 1.2rem 3rem; }
+  .filter-section, .portfolio-section, .cta-section { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .stats-bar { margin: 2rem 1.2rem; flex-wrap: wrap; }
+  .stat-item { min-width: 50%; }
+  footer { padding: 1.5rem 1.2rem; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/Design ohne Titel(17).png" alt="Dardania Design" class="nav-logo-img" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Dardania Design</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+    <li><a href="index.html#about" data-i18n="nav-about">Über uns</a></li>
+    <li><a href="portfolio.html" class="active" data-i18n="nav-portfolio">Portfolio</a></li>
+    <li><a href="preise.html" data-i18n="nav-pricing">Preise</a></li>
+    <li><a href="index.html#contact" data-i18n="nav-contact">Kontakt</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="de">DE</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="al">SQ</button>
+  </div>
+  <a href="index.html#contact" class="nav-cta" data-i18n="nav-cta">Projekt starten</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow" data-i18n="port-eyebrow">Unsere Arbeiten</div>
+    <h1 data-i18n="port-h1">Projekte die <em>überzeugen</em></h1>
+    <p data-i18n="port-p">Von Logos bis zu kompletten Websites — jedes Projekt erzählt eine Geschichte.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FILTER -->
+<section class="filter-section">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all" data-i18n="filter-all">Alle <span class="filter-count">11</span></button>
+    <button class="filter-btn" data-filter="web" data-i18n="filter-web">Web Design <span class="filter-count">3</span></button>
+    <button class="filter-btn" data-filter="branding" data-i18n="filter-brand">Branding & Logo <span class="filter-count">8</span></button>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section">
+  <div class="portfolio-grid">
+
+    <!-- 01 LOCO TAPAS — FEATURED WEB -->
+    <div class="proj-card featured reveal" data-category="web">
+      <div class="proj-inner">
+        <div>
+          <span class="proj-num">01 — 2024</span>
+          <div class="proj-tag-badge" data-i18n="p1-tag">Web Design · Branding</div>
+          <div class="proj-name">Loco Tapas RestoBar</div>
+          <div class="proj-desc" data-i18n="p1-desc">Ein vollständiges visuelles Erlebnis für ein spanisch-inspiriertes Restaurant in der Schweiz — von der Website bis zur Speisekarte.</div>
+          <div class="proj-services" data-i18n="p1-svcs">Website Design & Entwicklung · Logo & Branding<br>Farb- und Typografiekonzept · Menü Design · Social Media Vorlagen</div>
+          <a href="http://www.locotapas.ch" class="proj-link" target="_blank" data-i18n="p-view">Projekt ansehen →</a>
+        </div>
+        <div class="img-single"><img src="images/loco.png" alt="Loco Tapas" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+    <!-- 02 SAM'DESIGN — BRANDING -->
+    <div class="proj-card reveal d1" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">02 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p2-tag">Branding · Print</div>
+        <div class="proj-name">SAM'DESIGN</div>
+        <div class="proj-desc" data-i18n="p2-desc">Logo-Redesign und komplette Markenerneuerung für ein Designstudio — modern, markant und wiedererkennbar.</div>
+        <div class="proj-services" data-i18n="p2-svcs">Logo Redesign · Visitenkarte · Sticker · Fahrzeugdesign</div>
+        <div class="img-single">
+          <img src="images/sam.png" alt="SAM Design" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 MORINA SRLS — BRANDING -->
+    <div class="proj-card reveal d2" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">03 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p3-tag">Branding · Print</div>
+        <div class="proj-name">Morina SRLS</div>
+        <div class="proj-desc" data-i18n="p3-desc">Komplettes Branding-Paket für ein Unternehmen — Logo, Visitenkarte und professionelle Fahrzeugbeschriftung.</div>
+        <div class="proj-services" data-i18n="p3-svcs">Logo & Branding · Visitenkarte · Sticker · Fahrzeugbeschriftung</div>
+        <div class="img-single">
+          <img src="images/morina.png" alt="Morina SRLS" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 ORGESA KUSHAJ — BRANDING/FASHION -->
+    <div class="proj-card featured reveal" data-category="branding">
+      <div class="proj-inner">
+        <div>
+          <span class="proj-num">04 — 2024</span>
+          <div class="proj-tag-badge" data-i18n="p4-tag">Branding · Fashion · Social Media</div>
+          <div class="proj-name">Orgesa Kushaj</div>
+          <div class="proj-desc" data-i18n="p4-desc">Elegantes, minimalistisches Branding für eine Modedesignerin — eine Signatur die sofort wiedererkannt wird.</div>
+          <div class="proj-services" data-i18n="p4-svcs">Minimalistisches Logo · Visuelles Branding · Modische Signatur · Merchandise</div>
+        </div>
+        <div class="img-grid-2">
+          <img src="images/orgesa1.png" alt="Orgesa Kushaj 1" onerror="this.src=''">
+          <img src="images/orgesa 2.png" alt="Orgesa Kushaj 2" onerror="this.src=''">
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 RENO COMFORT — WEB -->
+    <div class="proj-card featured reveal" data-category="web">
+      <div class="proj-inner">
+        <div>
+          <span class="proj-num">05 — 2024</span>
+          <div class="proj-tag-badge" data-i18n="p5-tag">Web Design</div>
+          <div class="proj-name">Reno Comfort</div>
+          <div class="proj-desc" data-i18n="p5-desc">Eine warme, einladende Website für ein Komfort- und Wohnunternehmen in der Schweiz — Design das Vertrauen schafft.</div>
+          <div class="proj-services" data-i18n="p5-svcs">Website Design · Nutzererfahrung · Responsive Layout</div>
+          <a href="http://www.renocomfort.ch" class="proj-link" target="_blank" data-i18n="p-view">Projekt ansehen →</a>
+        </div>
+        <div class="img-single"><img src="images/reno.png" alt="Reno Comfort" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 06 NERTIL MORINA — BRANDING -->
+    <div class="proj-card reveal d1" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">06 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p6-tag">Branding · Logo</div>
+        <div class="proj-name">Nertil Morina</div>
+        <div class="proj-desc" data-i18n="p6-desc">Ein markantes Logo für einen Automechaniker und Schleppdienstanbieter — stark, vertrauenswürdig und sofort erkennbar.</div>
+        <div class="proj-services" data-i18n="p6-svcs">Logo Design · Automechanik & Schleppdienst</div>
+        <div class="img-single"><img src="images/nertil.png" alt="Nertil Morina" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+
+    <!-- 07 QK LLAKUES INDUSTRIAL — BRANDING -->
+    <div class="proj-card reveal d2" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">07 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p7-tag">Branding · Print</div>
+        <div class="proj-name">QK Llakues Industrial</div>
+        <div class="proj-desc" data-i18n="p7-desc">Logo und Visitenkarte für einen professionellen Lackierbetrieb — industriell, präzise und vertrauenswürdig.</div>
+        <div class="proj-services" data-i18n="p7-svcs">Logo Design · Visitenkarte</div>
+        <div class="img-grid-2">
+          <img src="images/qk-logo.png" alt="QK Llakues Logo" onerror="this.style.display='none'">
+          <img src="images/qk-karte.png" alt="QK Llakues Visitenkarte" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 08 BEIQI — BRANDING -->
+    <div class="proj-card reveal" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">08 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p8-tag">Branding · Logo</div>
+        <div class="proj-name">Beiqi</div>
+        <div class="proj-desc" data-i18n="p8-desc">Logo für einen Fachhändler für Isolationsmaterialien — professionell, seriös und branchennah.</div>
+        <div class="proj-services" data-i18n="p8-svcs">Logo Design · Isolation Fachhändler</div>
+        <div class="img-single"><img src="images/beiqi.png" alt="Beiqi" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+    <!-- 09 FLAME GLASS — BRANDING REDESIGN -->
+    <div class="proj-card reveal d1" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">09 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p9-tag">Branding · Logo Redesign</div>
+        <div class="proj-name">Flame Glass</div>
+        <div class="proj-desc" data-i18n="p9-desc">Logo-Redesign für Flame Glass — Vorher/Nachher Transformation mit modernem und einprägsamen Ergebnis.</div>
+        <div class="proj-services" data-i18n="p9-svcs">Logo Redesign · Vorher/Nachher</div>
+        <div class="img-grid-2">
+          <img src="images/flameglass-before.png" alt="Flame Glass Vorher" onerror="this.style.display='none'">
+          <img src="images/flameglass-after.png" alt="Flame Glass Nachher" onerror="this.style.display='none'">
+        </div>
+        <div style="display:flex;gap:1rem;margin-top:0.5rem;">
+          <span style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);" data-i18n="ba-before">Vorher</span>
+          <span style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);" data-i18n="ba-after">Nachher</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 PERFECT GLASS CLEANER — BRANDING -->
+    <div class="proj-card reveal d2" data-category="branding">
+      <div class="proj-inner">
+        <span class="proj-num">10 — 2024</span>
+        <div class="proj-tag-badge" data-i18n="p10-tag">Branding · Logo</div>
+        <div class="proj-name">Perfect Glass Cleaner</div>
+        <div class="proj-desc" data-i18n="p10-desc">Logo für einen professionellen Glasreinigungsservice — klar, frisch und vertrauenswürdig.</div>
+        <div class="proj-services" data-i18n="p10-svcs">Logo Design · Glasreinigung</div>
+        <div class="img-single"><img src="images/perfectglass.png" alt="Perfect Glass Cleaner" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+    <!-- 11 BEHOTEK — WEB -->
+    <div class="proj-card featured reveal" data-category="web">
+      <div class="proj-inner">
+        <div>
+          <span class="proj-num">11 — 2024</span>
+          <div class="proj-tag-badge" data-i18n="p11-tag">Web Design</div>
+          <div class="proj-name">Behotek</div>
+          <div class="proj-desc" data-i18n="p11-desc">Eine professionelle Website für Behotek — modern, übersichtlich und auf die Zielgruppe zugeschnitten.</div>
+          <div class="proj-services" data-i18n="p11-svcs">Website Design · Responsive Layout</div>
+        </div>
+        <div class="img-single"><img src="images/behotek.png" alt="Behotek" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar reveal">
+  <div class="stat-item">
+    <div class="stat-num">11+</div>
+    <div class="stat-lbl" data-i18n="stat-proj">Abgeschlossene Projekte</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">2</div>
+    <div class="stat-lbl" data-i18n="stat-countries">Länder</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-lbl" data-i18n="stat-happy">Zufriedene Kunden</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">2023</div>
+    <div class="stat-lbl" data-i18n="stat-founded">Gegründet</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="page-eyebrow" style="justify-content:center;margin-bottom:1.5rem;" data-i18n="cta-eyebrow">Nächstes Projekt</div>
+  <h2 data-i18n="cta-h2">Ihr Projekt könnte das <em>nächste</em> sein</h2>
+  <p data-i18n="cta-p">Kostenloses Erstgespräch — kein Risiko, keine Verpflichtung.</p>
+  <a href="index.html#contact" class="btn-gold" data-i18n="cta-btn">Projekt anfragen →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Design ohne Titel(17).png" alt="Dardania Design" onerror="this.style.display='none'">
+    <span class="footer-logo-text">Dardania Design</span>
+  </div>
+  <span class="footer-copy" data-i18n="footer-copy">© 2025 Dardania Design. Alle Rechte vorbehalten.</span>
+  <ul class="footer-links">
+    <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+    <li><a href="preise.html" data-i18n="nav-pricing">Preise</a></li>
+    <li><a href="index.html#contact" data-i18n="nav-contact">Kontakt</a></li>
+  </ul>
+</footer>
+
+<script>
+// REVEAL
+const io = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// FILTER
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.proj-card').forEach(card => {
+      if(f === 'all' || card.dataset.category === f) card.classList.remove('hidden');
+      else card.classList.add('hidden');
+    });
+  });
+});
+
+// TRANSLATIONS
+const t = {
+  de: {
+    'nav-home':'Home','nav-about':'Über uns','nav-portfolio':'Portfolio','nav-pricing':'Preise','nav-contact':'Kontakt','nav-cta':'Projekt starten',
+    'port-eyebrow':'Unsere Arbeiten','port-h1':'Projekte die <em>überzeugen</em>','port-p':'Von Logos bis zu kompletten Websites — jedes Projekt erzählt eine Geschichte.',
+    'filter-all':'Alle','filter-web':'Web Design','filter-brand':'Branding & Logo',
+    'p1-tag':'Web Design · Branding','p1-desc':'Ein vollständiges visuelles Erlebnis für ein spanisch-inspiriertes Restaurant in der Schweiz — von der Website bis zur Speisekarte.','p1-svcs':'Website Design & Entwicklung · Logo & Branding<br>Farb- und Typografiekonzept · Menü Design · Social Media Vorlagen',
+    'p2-tag':'Branding · Print','p2-desc':'Logo-Redesign und komplette Markenerneuerung für ein Designstudio — modern, markant und wiedererkennbar.','p2-svcs':'Logo Redesign · Visitenkarte · Sticker · Fahrzeugdesign',
+    'p3-tag':'Branding · Print','p3-desc':'Komplettes Branding-Paket für ein Unternehmen — Logo, Visitenkarte und professionelle Fahrzeugbeschriftung.','p3-svcs':'Logo & Branding · Visitenkarte · Sticker · Fahrzeugbeschriftung',
+    'p4-tag':'Branding · Fashion · Social Media','p4-desc':'Elegantes, minimalistisches Branding für eine Modedesignerin — eine Signatur die sofort wiedererkannt wird.','p4-svcs':'Minimalistisches Logo · Visuelles Branding · Modische Signatur · Merchandise',
+    'p8-tag':'Branding · Logo','p8-desc':'Logo für einen Fachhändler für Isolationsmaterialien — professionell, seriös und branchennah.','p8-svcs':'Logo Design · Isolation Fachhändler','p9-tag':'Branding · Logo Redesign','p9-desc':'Logo-Redesign für Flame Glass — Vorher/Nachher Transformation mit modernem und einprägsamen Ergebnis.','p9-svcs':'Logo Redesign · Vorher/Nachher','p10-tag':'Branding · Logo','p10-desc':'Logo für einen professionellen Glasreinigungsservice — klar, frisch und vertrauenswürdig.','p10-svcs':'Logo Design · Glasreinigung','p11-tag':'Web Design','p11-desc':'Eine professionelle Website für Behotek — modern, übersichtlich und auf die Zielgruppe zugeschnitten.','p11-svcs':'Website Design · Responsive Layout','ba-before':'Vorher','ba-after':'Nachher','p7-tag':'Branding · Print','p7-desc':'Logo und Visitenkarte für einen professionellen Lackierbetrieb — industriell, präzise und vertrauenswürdig.','p7-svcs':'Logo Design · Visitenkarte','p6-tag':'Branding · Logo','p6-desc':'Ein markantes Logo für einen Automechaniker und Schleppdienstanbieter — stark, vertrauenswürdig und sofort erkennbar.','p6-svcs':'Logo Design · Automechanik & Schleppdienst','p5-tag':'Web Design','p5-desc':'Eine warme, einladende Website für ein Komfort- und Wohnunternehmen in der Schweiz — Design das Vertrauen schafft.','p5-svcs':'Website Design · Nutzererfahrung · Responsive Layout',
+    'p-view':'Projekt ansehen →','img-soon':'Bilder folgen',
+    'stat-proj':'Abgeschlossene Projekte','stat-countries':'Länder','stat-happy':'Zufriedene Kunden','stat-founded':'Gegründet',
+    'cta-eyebrow':'Nächstes Projekt','cta-h2':'Ihr Projekt könnte das <em>nächste</em> sein','cta-p':'Kostenloses Erstgespräch — kein Risiko, keine Verpflichtung.','cta-btn':'Projekt anfragen →',
+    'footer-copy':'© 2025 Dardania Design. Alle Rechte vorbehalten.'
+  },
+  fr: {
+    'nav-home':'Accueil','nav-about':'À propos','nav-portfolio':'Portfolio','nav-pricing':'Tarifs','nav-contact':'Contact','nav-cta':'Démarrer un projet',
+    'port-eyebrow':'Nos réalisations','port-h1':'Des projets qui <em>convainquent</em>','port-p':'Des logos aux sites web complets — chaque projet raconte une histoire.',
+    'filter-all':'Tous','filter-web':'Web Design','filter-brand':'Branding & Logo',
+    'p1-tag':'Web Design · Branding','p1-desc':'Une expérience visuelle complète pour un restaurant d\'inspiration espagnole en Suisse — du site web au menu.','p1-svcs':'Design & Développement web · Logo & Branding<br>Concept couleurs & typographie · Design menu · Templates réseaux sociaux',
+    'p2-tag':'Branding · Print','p2-desc':'Refonte du logo et renouveau complet de la marque pour un studio de design — moderne, distinctif et reconnaissable.','p2-svcs':'Refonte logo · Carte de visite · Sticker · Design véhicule',
+    'p3-tag':'Branding · Print','p3-desc':'Pack branding complet pour une entreprise — logo, carte de visite et lettrage professionnel de véhicule.','p3-svcs':'Logo & Branding · Carte de visite · Sticker · Lettrage véhicule',
+    'p4-tag':'Branding · Fashion · Social Media','p4-desc':'Branding élégant et minimaliste pour une créatrice de mode — une signature immédiatement reconnaissable.','p4-svcs':'Logo minimaliste · Branding visuel · Signature mode · Merchandise',
+    'p8-tag':'Branding · Logo','p8-desc':'Logo pour un revendeur spécialisé en matériaux d\'isolation — professionnel, sérieux et proche du secteur.','p8-svcs':'Logo Design · Isolation','p9-tag':'Branding · Refonte Logo','p9-desc':'Refonte du logo Flame Glass — transformation avant/après avec un résultat moderne et mémorable.','p9-svcs':'Refonte logo · Avant/Après','p10-tag':'Branding · Logo','p10-desc':'Logo pour un service professionnel de nettoyage de vitres — clair, frais et fiable.','p10-svcs':'Logo Design · Nettoyage de vitres','p11-tag':'Web Design','p11-desc':'Un site web professionnel pour Behotek — moderne, clair et adapté à la cible.','p11-svcs':'Website Design · Layout responsive','ba-before':'Avant','ba-after':'Après','p7-tag':'Branding · Print','p7-desc':'Logo et carte de visite pour un atelier de peinture professionnel — industriel, précis et fiable.','p7-svcs':'Logo Design · Carte de visite','p6-tag':'Branding · Logo','p6-desc':'Un logo distinctif pour un mécanicien automobile et prestataire de remorquage — fort, fiable et immédiatement reconnaissable.','p6-svcs':'Logo Design · Mécanique auto & remorquage','p5-tag':'Web Design','p5-desc':'Un site web chaleureux et accueillant pour une entreprise de confort et d\'habitat en Suisse — un design qui inspire confiance.','p5-svcs':'Website Design · Expérience utilisateur · Layout responsive',
+    'p-view':'Voir le projet →','img-soon':'Images à venir',
+    'stat-proj':'Projets réalisés','stat-countries':'Pays','stat-happy':'Clients satisfaits','stat-founded':'Fondé en',
+    'cta-eyebrow':'Prochain projet','cta-h2':'Votre projet pourrait être le <em>prochain</em>','cta-p':'Premier entretien gratuit — sans risque, sans engagement.','cta-btn':'Demander un projet →',
+    'footer-copy':'© 2025 Dardania Design. Tous droits réservés.'
+  },
+  en: {
+    'nav-home':'Home','nav-about':'About','nav-portfolio':'Portfolio','nav-pricing':'Pricing','nav-contact':'Contact','nav-cta':'Start a project',
+    'port-eyebrow':'Our work','port-h1':'Projects that <em>impress</em>','port-p':'From logos to complete websites — every project tells a story.',
+    'filter-all':'All','filter-web':'Web Design','filter-brand':'Branding & Logo',
+    'p1-tag':'Web Design · Branding','p1-desc':'A complete visual experience for a Spanish-inspired restaurant in Switzerland — from the website to the menu.','p1-svcs':'Website Design & Development · Logo & Branding<br>Colour & Typography Concept · Menu Design · Social Media Templates',
+    'p2-tag':'Branding · Print','p2-desc':'Logo redesign and complete brand renewal for a design studio — modern, distinctive and recognisable.','p2-svcs':'Logo Redesign · Business Card · Sticker · Vehicle Design',
+    'p3-tag':'Branding · Print','p3-desc':'Complete branding package for a company — logo, business card and professional vehicle lettering.','p3-svcs':'Logo & Branding · Business Card · Sticker · Vehicle Branding',
+    'p4-tag':'Branding · Fashion · Social Media','p4-desc':'Elegant, minimalist branding for a fashion designer — a signature that is instantly recognisable.','p4-svcs':'Minimalist Logo · Visual Branding · Fashion Signature · Merchandise',
+    'p8-tag':'Branding · Logo','p8-desc':'Logo for a specialist insulation materials dealer — professional, reliable and industry-appropriate.','p8-svcs':'Logo Design · Insulation Specialist','p9-tag':'Branding · Logo Redesign','p9-desc':'Logo redesign for Flame Glass — before/after transformation with a modern and memorable result.','p9-svcs':'Logo Redesign · Before/After','p10-tag':'Branding · Logo','p10-desc':'Logo for a professional glass cleaning service — clean, fresh and trustworthy.','p10-svcs':'Logo Design · Glass Cleaning','p11-tag':'Web Design','p11-desc':'A professional website for Behotek — modern, clear and tailored to the target audience.','p11-svcs':'Website Design · Responsive Layout','ba-before':'Before','ba-after':'After','p7-tag':'Branding · Print','p7-desc':'Logo and business card for a professional painting company — industrial, precise and trustworthy.','p7-svcs':'Logo Design · Business Card','p6-tag':'Branding · Logo','p6-desc':'A striking logo for a car mechanic and towing service provider — strong, trustworthy and instantly recognisable.','p6-svcs':'Logo Design · Car Mechanic & Towing Service','p5-tag':'Web Design','p5-desc':'A warm, welcoming website for a comfort and living company in Switzerland — design that builds trust.','p5-svcs':'Website Design · User Experience · Responsive Layout',
+    'p-view':'View project →','img-soon':'Images coming soon',
+    'stat-proj':'Completed projects','stat-countries':'Countries','stat-happy':'Satisfied clients','stat-founded':'Founded',
+    'cta-eyebrow':'Next project','cta-h2':'Your project could be the <em>next</em> one','cta-p':'Free initial consultation — no risk, no obligation.','cta-btn':'Request a project →',
+    'footer-copy':'© 2025 Dardania Design. All rights reserved.'
+  },
+  al: {
+    'nav-home':'Kryefaqja','nav-about':'Rreth nesh','nav-portfolio':'Portfolio','nav-pricing':'Çmimet','nav-contact':'Kontakt','nav-cta':'Fillo projektin',
+    'port-eyebrow':'Punimet tona','port-h1':'Projekte që <em>bindin</em>','port-p':'Nga logot deri te uebfaqet e plota — çdo projekt tregon një histori.',
+    'filter-all':'Të gjitha','filter-web':'Web Design','filter-brand':'Branding & Logo',
+    'p1-tag':'Web Design · Branding','p1-desc':'Një përvojë vizuale e plotë për një restorant me inspirim spanjoll në Zvicër — nga uebfaqja deri te menyja.','p1-svcs':'Dizajn & Zhvillim Uebfaqeje · Logo & Branding<br>Koncepti i Ngjyrave & Tipografisë · Dizajn Menysë · Shabllone Media Sociale',
+    'p2-tag':'Branding · Print','p2-desc':'Ridisanjim i logos dhe rinovim i plotë i markës për një studio dizajni — modern, i dalluar dhe i njohur.','p2-svcs':'Ridisanjim Logoje · Kartëvizitë · Sticker · Dizajn Makine',
+    'p3-tag':'Branding · Print','p3-desc':'Paket i plotë branding për një kompani — logo, kartëvizitë dhe grafika profesionale automjetesh.','p3-svcs':'Logo & Branding · Kartëvizitë · Sticker · Grafika Automjetesh',
+    'p4-tag':'Branding · Fashion · Social Media','p4-desc':'Branding elegant dhe minimalist për një dizajnere mode — një nënshkrim që njihet menjëherë.','p4-svcs':'Logo minimaliste · Branding vizual · Nënshkrim mode · Merchandise',
+    'p8-tag':'Branding · Logo','p8-desc':'Logo për një shitës të specializuar të materialeve të izolimit — profesional, serioz dhe afër sektorit.','p8-svcs':'Logo Design · Shitës Izolimi','p9-tag':'Branding · Ridisanjim Logo','p9-desc':'Ridisanjim i logos për Flame Glass — transformim para/pas me rezultat modern dhe të paharrueshëm.','p9-svcs':'Ridisanjim Logo · Para/Pas','p10-tag':'Branding · Logo','p10-desc':'Logo për një shërbim profesional pastrimi xhamash — i qartë, i freskët dhe i besueshëm.','p10-svcs':'Logo Design · Pastrim Xhamash','p11-tag':'Web Design','p11-desc':'Një uebfaqe profesionale për Behotek — moderne, e qartë dhe e përshtatur për audiencën e synuar.','p11-svcs':'Dizajn Uebfaqeje · Layout Responsive','ba-before':'Para','ba-after':'Pas','p7-tag':'Branding · Print','p7-desc':'Logo dhe kartëvizitë për një kompani profesionale lakimi — industriale, precize dhe e besueshme.','p7-svcs':'Logo Design · Kartëvizitë','p6-tag':'Branding · Logo','p6-desc':'Një logo e spikatur për një mekanik automobili dhe ofrues shërbimi rimorkimi — e fortë, e besueshme dhe e njohur menjëherë.','p6-svcs':'Logo Design · Mekanikë Automobili & Shërbim Rimorkimi','p5-tag':'Web Design','p5-desc':'Një uebfaqe e ngrohtë dhe mikpritëse për një kompani komforti dhe strehimi në Zvicër — dizajn që krijon besim.','p5-svcs':'Dizajn Uebfaqeje · Eksperiencë Përdoruesi · Layout Responsive',
+    'p-view':'Shiko projektin →','img-soon':'Imazhet vijnë së shpejti',
+    'stat-proj':'Projekte të përfunduara','stat-countries':'Vende','stat-happy':'Klientë të kënaqur','stat-founded':'E themeluar',
+    'cta-eyebrow':'Projekti tjetër','cta-h2':'Projekti juaj mund të jetë <em>i radhës</em>','cta-p':'Bisedë e parë falas — pa rrezik, pa detyrim.','cta-btn':'Kërko projekt →',
+    'footer-copy':'© 2025 Dardania Design. Të gjitha të drejtat e rezervuara.'
+  }
+};
+
+function applyLang(lang) {
+  const tr = t[lang]; if(!tr) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if(tr[k]) el.innerHTML = tr[k];
+  });
+  document.documentElement.lang = {de:'de',fr:'fr',en:'en',al:'sq'}[lang] || lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('dd-lang', lang); } catch(e){}
+}
+
+document.addEventListener('click', e => {
+  if(e.target.matches('.lang-btn')) applyLang(e.target.dataset.lang);
+});
+
+let saved = 'de';
+try { saved = localStorage.getItem('dd-lang') || 'de'; } catch(e){}
+applyLang(saved);
+</script>
+</body>
+</html>
