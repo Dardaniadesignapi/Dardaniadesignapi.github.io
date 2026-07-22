@@ -87,11 +87,12 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/">Dardania<span class="brand-accent">Design</span></a>
+    <a class="brand" href="/"><img src="/images/logo-mark.png" alt="Dardania Design" width="34" height="34"></a>
     <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <a href="#angebot">Angebot</a>
       <a href="#ablauf">Ablauf</a>
       <a href="/portfolio.html">Portfolio</a>
+      <a href="/konfigurator.html">Konfigurator</a>
       <a href="#zusatz">Zusatzleistungen</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
@@ -148,8 +149,8 @@
           <span class="icon">🌱</span>
           <h3>Basic</h3>
           <p>Für Neugründungen &amp; kleine Betriebe</p>
-          <div class="price">99 CHF <small>/ Monat</small></div>
-          <p class="price-alt">oder 1'069 CHF/Jahr (–10%)</p>
+          <div class="price">79 CHF <small>/ Monat</small></div>
+          <p class="price-alt">oder 849 CHF/Jahr (–10%)</p>
           <ul>
             <li>1 Landingpage</li>
             <li>Hosting, SSL &amp; Domain-Beratung</li>
@@ -190,7 +191,7 @@
           <a class="btn btn-ghost btn-block" href="#kontakt">Anfragen →</a>
         </div>
       </div>
-      <p class="pricing-note">Mindestlaufzeit 12–24 Monate · Domain &amp; neue Funktionen separat, wir beraten gerne · Alle Preise exkl. MwSt.</p>
+      <p class="pricing-note">30% Anzahlung vom Gesamtpreis bei Vertragsstart, danach die reguläre Monatsrate wie gewohnt · Mindestlaufzeit 12–24 Monate · Domain &amp; neue Funktionen separat, wir beraten gerne · Alle Preise exkl. MwSt.</p>
 
       <div class="compare-scroll">
         <table class="compare">
@@ -294,28 +295,22 @@
   <section id="zusatz">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Zusatzleistungen</p>
-        <h2>Rund um deine <span class="accent">Website</span></h2>
-        <p>Unser Fokus ist Web Design. Falls du mehr brauchst, ergänzen wir gerne — als Zusatz zu deinem Website-Projekt.</p>
+        <p class="eyebrow">Zusatzleistung</p>
+        <h2>Logo &amp; <span class="accent">Branding</span></h2>
+        <p>Unser Fokus ist Web Design. Falls du noch kein Logo oder Branding hast, bauen wir das gerne als Zusatz zu deinem Website-Projekt.</p>
       </div>
-      <div class="extras-grid">
+      <div class="extras-grid extras-grid--single">
         <div class="extra-card">
           <span class="icon">🎨</span>
-          <h3>Logo &amp; Branding</h3>
-          <p>Logo in 3 Varianten, Farbpalette &amp; Typografie, Brand Guidelines.</p>
-          <p class="amount">ab 750 CHF</p>
+          <h3>Logo Design</h3>
+          <p>Logo in 3 Varianten, 2 Revisionen, alle Dateiformate (PNG, SVG, PDF), Lieferung innert 5 Werktagen.</p>
+          <p class="amount">ab 890 CHF</p>
         </div>
         <div class="extra-card">
-          <span class="icon">📱</span>
-          <h3>Social Media Setup</h3>
-          <p>Profil, Bio, Link-in-Bio &amp; 3 Starter-Posts für Instagram &amp; TikTok.</p>
-          <p class="amount">800 CHF einmalig</p>
-        </div>
-        <div class="extra-card">
-          <span class="icon">🖨️</span>
-          <h3>Print &amp; Produkte</h3>
-          <p>Visitenkarten, Broschüren, Banner und Fahrzeugbeschriftung.</p>
-          <p class="amount">Auf Anfrage</p>
+          <span class="icon">✨</span>
+          <h3>Logo + Branding</h3>
+          <p>Logo in 3 Varianten, Farbpalette &amp; Typografie, Visitenkarte, Brand Guidelines (PDF), 3 Revisionen.</p>
+          <p class="amount">ab 1'490 CHF</p>
         </div>
       </div>
     </div>
@@ -351,7 +346,7 @@
         </details>
         <details class="faq-item">
           <summary>Wie funktioniert das Website-Abo?</summary>
-          <p>Statt einer hohen Einmalzahlung zahlst du monatlich oder jährlich (10% Rabatt). Enthalten sind Hosting, SSL und ein monatliches Support-Kontingent für Textänderungen, Bilder und kleine Anpassungen. Die Mindestlaufzeit beträgt 12–24 Monate, da die Hauptarbeit zu Beginn erfolgt. Neue Seiten, Funktionen oder ein Layout-Redesign werden separat berechnet.</p>
+          <p>Statt einer hohen Einmalzahlung zahlst du monatlich oder jährlich (10% Rabatt). Bei Vertragsstart wird eine Anzahlung von 30% des Gesamtpreises fällig, danach läuft die reguläre Monatsrate wie gewohnt weiter. Enthalten sind Hosting, SSL und ein monatliches Support-Kontingent für Textänderungen, Bilder und kleine Anpassungen. Die Mindestlaufzeit beträgt 12–24 Monate, da die Hauptarbeit zu Beginn erfolgt. Neue Seiten, Funktionen oder ein Layout-Redesign werden separat berechnet.</p>
         </details>
         <details class="faq-item">
           <summary>Gibt es individuelle Angebote?</summary>
@@ -378,7 +373,7 @@
         </dl>
       </div>
 
-      <form class="form-card" id="contact-form" novalidate>
+      <form class="form-card" id="contact-form" method="POST" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" novalidate>
         <div class="field-row">
           <div class="field">
             <label for="name">Name *</label>
@@ -405,7 +400,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block">Anfrage senden →</button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        <p class="form-note">Mit dem Absenden öffnet sich dein E-Mail-Programm mit deiner Nachricht — es wird nichts automatisch übertragen. Details in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+        <p class="form-note">Deine Anfrage wird direkt an uns gesendet — es öffnet sich kein E-Mail-Programm. Details in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
       </form>
     </div>
   </section>
@@ -415,7 +410,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
-      <a class="footer-brand" href="/">Dardania<span class="brand-accent">Design</span></a>
+      <a class="footer-brand" href="/"><img src="/images/logo-mark.png" alt="Dardania Design" width="28" height="28"></a>
       <div class="footer-social">
         <a href="https://www.instagram.com/dardaniadesign/" rel="noopener" aria-label="Dardania Design auf Instagram">IG</a>
         <a href="https://www.facebook.com/dardaniadesign" rel="noopener" aria-label="Dardania Design auf Facebook">FB</a>

@@ -18,6 +18,23 @@
 ## Offene Preis-Frage (aus dem letzten Audit)
 Der Basic-Preis (99 CHF/Monat, 1 Seite, 12–24 Monate Mindestlaufzeit) liegt über dem, was Wettbewerber wie amai! (ab 35 CHF/Monat) für vergleichbare Abo-Websites verlangen. Ich habe die Zahl unverändert übernommen, da das eine Geschäftsentscheidung ist — nicht Teil des technischen Rebuilds.
 
+## Update (3. Überarbeitung)
+- **Logo ist zurück**: Header/Footer zeigen jetzt wieder das Logo-Bild (`logo-mark.png`) — ohne zusätzlichen Text daneben, damit nichts doppelt steht.
+- **Konfigurator-Link** war aus der Hauptnavigation verschwunden — wieder ergänzt (Start- und Portfolio-Seite).
+- **Interne Hinweise entfernt**: Die orangen "Hinweis für dich (Lami)"-Kästen auf Impressum/Datenschutz/Konfigurator waren aus Versehen öffentlich sichtbar — komplett entfernt. Die unausgefüllten UID/Handelsregister-Zeilen im Impressum sind ebenfalls raus, da keine Nummer vorliegt.
+- **Zusatzleistungen reduziert**: "Social Media Setup" und "Print & Produkte" komplett entfernt (werden nicht mehr angeboten). Es bleibt nur noch Logo/Logo+Branding.
+- **Preise aktualisiert** (siehe Begründung im Chat):
+  - Logo Design: 750 → **890 CHF** (Schweizer Marktdurchschnitt für KMU liegt bei CHF 600–1'500, 750 war eher unterpreist)
+  - Logo + Branding: 1'200 → **1'490 CHF** (Marktvergleich: Branding-Pakete mit Visitenkarte/Guidelines liegen bei Agenturen ab CHF 1'900+)
+  - Website-Abo Basic: 99 → **79 CHF/Monat** (bzw. 849.–/Jahr) — gesenkt, weil neu eine 30%-Anzahlung dazukommt und der Gesamtpreis sonst über dem Marktniveau für eine Landingpage läge
+  - Standard (189.–) und Pro (ab 350.–) unverändert — lagen bereits im Marktrahmen
+  - **Neu**: 30% Anzahlung vom Gesamtpreis bei Vertragsstart, danach die reguläre Monatsrate — jetzt in Preis-Sektion und FAQ vermerkt
+- **Kontaktformular sendet jetzt wirklich direkt** — es öffnet sich kein E-Mail-Programm mehr. Das läuft über **Formspree** (kostenloser Formular-Dienst für statische Seiten wie GitHub Pages). **Du musst noch etwas tun, sonst sendet das Formular nicht:**
+  1. Gehe auf [formspree.io](https://formspree.io), kostenlos registrieren.
+  2. Neues Formular erstellen, den Endpoint kopieren (sieht aus wie `https://formspree.io/f/abcd1234`).
+  3. In **zwei Stellen** in `index.html` den Platzhalter `https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID` durch deinen echten Endpoint ersetzen (im `<form>`-Tag) **und** in `js/script.js` die Variable `FORM_ENDPOINT` ganz oben im Kontaktformular-Block anpassen.
+  Bis das erledigt ist, zeigt das Formular eine Fehlermeldung statt zu senden.
+
 ## Update (2. Überarbeitung)
 - **Doppeltes "Dardania Design" im Header/Footer behoben**: Vorher stand neben dem Logo-Bild zusätzlich der Text "Dardania Design" — falls `logo-mark.png` bei euch bereits den vollen Schriftzug enthält, erschien der Name zweimal. Header und Footer zeigen jetzt nur noch einen reinen Text-Wortmarke ("Dardania**Design**", Design in Rot). Das Logo-Bild wird nirgends mehr im sichtbaren Inhalt geladen — `logo-mark.png` wird nur noch als Favicon (Browser-Tab-Icon) referenziert.
 - **Hero neu gestaltet**: Das generische "Browser-Fenster"-Mockup wurde durch ein eigenständiges Element ersetzt — ein rotierter Stempel mit "48" (eure eigentliche Positionierung: Live in 48 Stunden) plus zwei Standort-Badges (Sierre / Prizren).
