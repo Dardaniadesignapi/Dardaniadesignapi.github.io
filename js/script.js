@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
      2) Copy the endpoint it gives you (looks like https://formspree.io/f/xxxxabcd).
      3) Paste it below instead of the placeholder. Until this is done, the form
         will show an error instead of sending. */
-  var FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
+  var FORM_ENDPOINT = 'https://formspree.io/f/xqerdaqa';
 
   var form = document.getElementById('contact-form');
   if (form) {
