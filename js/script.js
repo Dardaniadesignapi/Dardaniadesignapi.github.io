@@ -1,99 +1,195 @@
-// Dardania Design — site script
-document.addEventListener('DOMContentLoaded', function () {
+/* ==========================================================================
+   Dardania Design — script.js
+   1) Cookie-Consent: blockiert die Seite beim ersten Laden bis zur Wahl
+   2) Mobiles Menü
+   3) Kontaktformular: Validierung inkl. Pflicht-Checkbox Datenschutz
+   ========================================================================== */
 
-  /* Mobile nav toggle */
-  var toggle = document.querySelector('.nav-toggle');
-  var nav = document.querySelector('.nav-links');
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.classList.toggle('menu-open', open);
-    });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('menu-open');
-      });
-    });
+(function () {
+  "use strict";
+
+  var CONSENT_KEY = "dardania_cookie_consent"; // { necessary: true, stats: bool, ts: string }
+
+  var overlay = document.getElementById("cookie-overlay");
+  var banner = document.getElementById("cookie-banner");
+  var reopenBtn = document.getElementById("cookie-reopen");
+  var settingsToggle = document.getElementById("cookie-settings-toggle");
+  var optionsPanel = document.getElementById("cookie-options");
+  var statsCheckbox = document.getElementById("consent-stats");
+  var acceptAllBtn = document.getElementById("cookie-accept-all");
+  var acceptSelectionBtn = document.getElementById("cookie-accept-selection");
+  var rejectBtn = document.getElementById("cookie-reject");
+  var footerCookieLink = document.getElementById("footer-cookie-link");
+
+  function readConsent() {
+    try {
+      var raw = localStorage.getItem(CONSENT_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
   }
 
-  /* Portfolio filter (only present on portfolio.html) */
-  var filterButtons = document.querySelectorAll('.filter-btn');
-  var cards = document.querySelectorAll('.portfolio-card');
-  if (filterButtons.length && cards.length) {
-    filterButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        filterButtons.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
-        btn.setAttribute('aria-pressed', 'true');
-        var category = btn.dataset.filter;
-        cards.forEach(function (card) {
-          var match = category === 'all' || card.dataset.category.indexOf(category) !== -1;
-          card.style.display = match ? '' : 'none';
-        });
-      });
-    });
+  function writeConsent(consent) {
+    consent.necessary = true;
+    consent.ts = new Date().toISOString();
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
+    } catch (e) {
+      /* localStorage nicht verfügbar (z. B. privater Modus) - Banner bleibt
+         beim nächsten Laden erneut sichtbar, aber wir blockieren die
+         aktuelle Sitzung trotzdem nicht doppelt. */
+    }
+    applyConsent(consent);
   }
 
-  /* Contact form: sends directly via Formspree — no email program is opened.
-     SETUP REQUIRED: replace FORM_ENDPOINT below with your own Formspree endpoint.
-     1) Go to https://formspree.io, sign up free, create a form.
-     2) Copy the endpoint it gives you (looks like https://formspree.io/f/xxxxabcd).
-     3) Paste it below instead of the placeholder. Until this is done, the form
-        will show an error instead of sending. */
-  var FORM_ENDPOINT = 'https://formspree.io/f/xqerdaqa';
-
-  var form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var status = document.getElementById('form-status');
-      var submitBtn = form.querySelector('button[type="submit"]');
-      var name = form.name.value.trim();
-      var email = form.email.value.trim();
-      var message = form.message.value.trim();
-      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!name || !email || !message) {
-        status.textContent = 'Bitte fülle Name, E-Mail und Nachricht aus.';
-        status.dataset.state = 'error';
-        return;
-      }
-      if (!emailPattern.test(email)) {
-        status.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
-        status.dataset.state = 'error';
-        return;
-      }
-      if (FORM_ENDPOINT.indexOf('REPLACE_WITH_YOUR_FORM_ID') !== -1) {
-        status.textContent = 'Formular ist noch nicht angeschlossen (Formspree-Endpoint fehlt) — bitte per E-Mail an info@dardaniadesign.com schreiben.';
-        status.dataset.state = 'error';
-        return;
-      }
-
-      submitBtn.disabled = true;
-      status.textContent = 'Wird gesendet …';
-      status.dataset.state = '';
-
-      fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      }).then(function (response) {
-        submitBtn.disabled = false;
-        if (response.ok) {
-          status.textContent = 'Danke! Deine Anfrage ist angekommen — wir melden uns innert 24 Stunden.';
-          status.dataset.state = 'success';
-          form.reset();
-        } else {
-          status.textContent = 'Senden hat nicht geklappt. Bitte versuch es nochmal oder schreib uns direkt an info@dardaniadesign.com.';
-          status.dataset.state = 'error';
-        }
-      }).catch(function () {
-        submitBtn.disabled = false;
-        status.textContent = 'Senden hat nicht geklappt (keine Verbindung). Bitte versuch es nochmal oder schreib uns direkt an info@dardaniadesign.com.';
-        status.dataset.state = 'error';
-      });
-    });
+  function applyConsent(consent) {
+    // Hier ansetzen, um Skripte NUR bei Zustimmung nachzuladen, z. B.:
+    // if (consent.stats) { loadAnalyticsScript(); }
+    document.dispatchEvent(new CustomEvent("dardania:consent-updated", { detail: consent }));
   }
-});
+
+  function showBanner() {
+    overlay.hidden = false;
+    banner.hidden = false;
+    reopenBtn.hidden = true;
+    document.body.classList.add("no-scroll");
+    banner.querySelector(".btn-primary").focus();
+  }
+
+  function hideBanner() {
+    overlay.hidden = true;
+    banner.hidden = true;
+    reopenBtn.hidden = false;
+    document.body.classList.remove("no-scroll");
+  }
+
+  function init() {
+    var existing = readConsent();
+    if (existing) {
+      applyConsent(existing);
+      hideBanner();
+    } else {
+      // Erster Besuch: Banner blockiert die Seite, bis eine Wahl getroffen wurde.
+      showBanner();
+    }
+  }
+
+  settingsToggle.addEventListener("click", function () {
+    var expanded = settingsToggle.getAttribute("aria-expanded") === "true";
+    settingsToggle.setAttribute("aria-expanded", String(!expanded));
+    optionsPanel.hidden = expanded;
+  });
+
+  acceptAllBtn.addEventListener("click", function () {
+    statsCheckbox.checked = true;
+    writeConsent({ stats: true });
+    hideBanner();
+  });
+
+  acceptSelectionBtn.addEventListener("click", function () {
+    writeConsent({ stats: statsCheckbox.checked });
+    hideBanner();
+  });
+
+  rejectBtn.addEventListener("click", function () {
+    statsCheckbox.checked = false;
+    writeConsent({ stats: false });
+    hideBanner();
+  });
+
+  function reopenBanner(e) {
+    if (e) e.preventDefault();
+    var existing = readConsent() || { stats: false };
+    statsCheckbox.checked = !!existing.stats;
+    showBanner();
+  }
+
+  reopenBtn.addEventListener("click", reopenBanner);
+  footerCookieLink.addEventListener("click", reopenBanner);
+
+  // Escape schliesst das Banner NICHT beim ersten Besuch (erzwungene Wahl),
+  // aber beim erneuten Öffnen über den Reopen-Button schon.
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !banner.hidden && readConsent()) {
+      hideBanner();
+    }
+  });
+
+  init();
+})();
+
+/* ---------- Mobiles Menü ---------- */
+(function () {
+  "use strict";
+  var toggle = document.getElementById("menu-toggle");
+  var nav = document.getElementById("primary-nav");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+
+  nav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+})();
+
+/* ---------- Jahr im Footer ---------- */
+(function () {
+  var el = document.getElementById("year");
+  if (el) el.textContent = new Date().getFullYear();
+})();
+
+/* ---------- Kontaktformular ---------- */
+(function () {
+  "use strict";
+  var form = document.getElementById("contact-form");
+  if (!form) return;
+  var status = document.getElementById("form-status");
+  var consentBox = document.getElementById("privacy-consent");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.className = "form-status";
+    status.textContent = "";
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (!consentBox.checked) {
+      status.textContent = "Bitte stimme der Datenschutzerklärung zu, um die Anfrage zu senden.";
+      status.classList.add("error");
+      consentBox.focus();
+      return;
+    }
+
+    // Platzhalter für die Übertragung: Hier den echten Endpunkt eintragen
+    // (z. B. eigener Server, Formspree, oder serverseitiges Skript).
+    // Wichtig: personenbezogene Daten aus diesem Formular nur an einen
+    // Verarbeiter senden, der in der Datenschutzerklärung genannt ist.
+    //
+    // fetch("/api/contact", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    // })
+    //   .then(function (res) { if (!res.ok) throw new Error("send-failed"); })
+    //   .then(function () { showSuccess(); })
+    //   .catch(function () { showError(); });
+
+    showSuccess();
+  });
+
+  function showSuccess() {
+    status.textContent = "Danke! Deine Anfrage wurde übermittelt — wir melden uns innert 24 Stunden.";
+    status.classList.add("success");
+    form.reset();
+  }
+})();
