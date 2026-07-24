@@ -121,6 +121,10 @@ textarea:focus-visible {
   background: var(--accent);
   flex-shrink: 0;
 }
+img.logo-mark {
+  background: none;
+  object-fit: contain;
+}
 
 nav.primary-nav {
   display: flex;
