@@ -278,13 +278,55 @@ section.alt { background: var(--bg-alt); }
   border-bottom: 1px solid var(--line);
   padding: 18px 0;
   margin-bottom: 20px;
-  display: grid;
-  gap: 10px;
 }
-.price-line { display: flex; justify-content: space-between; align-items: baseline; }
-.price-line .label { color: var(--ink-soft); font-size: 0.92rem; }
-.price-line .value { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; }
-.price-line .value.big { font-size: 1.5rem; color: var(--accent-dark); }
+.price-kicker {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.price-amount .value.big {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: var(--accent-dark);
+}
+.price-amount .unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.price-note {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+.price-secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+.price-secondary .label { color: var(--ink-soft); font-size: 0.88rem; }
+.price-secondary .value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
 
 .price-card ul {
   list-style: none;
