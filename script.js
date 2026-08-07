@@ -170,26 +170,32 @@
       return;
     }
 
-    // Platzhalter für die Übertragung: Hier den echten Endpunkt eintragen
-    // (z. B. eigener Server, Formspree, oder serverseitiges Skript).
-    // Wichtig: personenbezogene Daten aus diesem Formular nur an einen
-    // Verarbeiter senden, der in der Datenschutzerklärung genannt ist.
-    //
-    // fetch("/api/contact", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(Object.fromEntries(new FormData(form)))
-    // })
-    //   .then(function (res) { if (!res.ok) throw new Error("send-failed"); })
-    //   .then(function () { showSuccess(); })
-    //   .catch(function () { showError(); });
+    // Übertragung via FormSubmit.co (kein eigenes Backend nötig, kostenlos).
+    // WICHTIG: Nach der allerersten echten Einsendung schickt FormSubmit eine
+    // Bestätigungs-E-Mail an info@dardaniadesign.com — dort auf den Aktivierungs-
+    // Link klicken, danach funktionieren alle weiteren Einsendungen automatisch.
+    var submitBtn = form.querySelector("button[type=submit], .btn-primary");
+    if (submitBtn) submitBtn.disabled = true;
 
-    showSuccess();
+    fetch("https://formsubmit.co/ajax/info@dardaniadesign.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    })
+      .then(function (res) { if (!res.ok) throw new Error("send-failed"); })
+      .then(function () { showSuccess(); })
+      .catch(function () { showError(); })
+      .finally(function () { if (submitBtn) submitBtn.disabled = false; });
   });
 
   function showSuccess() {
     status.textContent = "Danke! Deine Anfrage wurde übermittelt — wir melden uns innert 24 Stunden.";
     status.classList.add("success");
     form.reset();
+  }
+
+  function showError() {
+    status.textContent = "Da ist etwas schiefgelaufen. Bitte versuch es nochmal oder schreib uns direkt an info@dardaniadesign.com.";
+    status.classList.add("error");
   }
 })();
