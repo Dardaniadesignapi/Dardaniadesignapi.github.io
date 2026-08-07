@@ -170,14 +170,11 @@
       return;
     }
 
-    // Übertragung via FormSubmit.co (kein eigenes Backend nötig, kostenlos).
-    // WICHTIG: Nach der allerersten echten Einsendung schickt FormSubmit eine
-    // Bestätigungs-E-Mail an info@dardaniadesign.com — dort auf den Aktivierungs-
-    // Link klicken, danach funktionieren alle weiteren Einsendungen automatisch.
+    // Übertragung via Formspree (formspree.io/f/xqerdaqa).
     var submitBtn = form.querySelector("button[type=submit], .btn-primary");
     if (submitBtn) submitBtn.disabled = true;
 
-    fetch("https://formsubmit.co/ajax/info@dardaniadesign.com", {
+    fetch("https://formspree.io/f/xqerdaqa", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
