@@ -16,6 +16,11 @@
     <priority>0.2</priority>
   </url>
   <url>
+    <loc>https://www.dardaniadesign.com/agb.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
     <loc>https://www.dardaniadesign.com/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
