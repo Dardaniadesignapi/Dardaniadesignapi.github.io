@@ -21,6 +21,10 @@
   var rejectBtn = document.getElementById("cookie-reject");
   var footerCookieLink = document.getElementById("footer-cookie-link");
 
+  // Auf Seiten ohne Cookie-Banner (z. B. Portfolio) hier abbrechen, damit
+  // der Rest von script.js (Menü, Formular, Jahr) trotzdem ausgeführt wird.
+  if (!banner || !acceptAllBtn || !acceptSelectionBtn || !rejectBtn) return;
+
   function readConsent() {
     try {
       var raw = localStorage.getItem(CONSENT_KEY);
