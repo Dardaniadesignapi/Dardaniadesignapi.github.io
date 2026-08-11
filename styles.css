@@ -763,7 +763,7 @@ footer.site-footer {
   margin-bottom: 10px;
 }
 @media (min-width: 720px) {
-  .promo-card { grid-template-columns: 1.4fr 1fr; align-items: center; padding: 40px; }
+  .promo-card { grid-template-columns: 1.4fr 1fr; align-items: stretch; padding: 40px; }
   .promo-price {
     border-top: none;
     border-left: 1px dashed var(--line);
