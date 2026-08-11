@@ -14,67 +14,75 @@
 <meta property="og:site_name" content="Dardania Design">
 <meta property="og:title" content="Portfolio — Web Design &amp; Branding Projekte | Dardania Design">
 <meta property="og:description" content="Web Design, Logo &amp; Branding Projekte aus der Schweiz und dem Kosovo.">
-<meta property="og:image" content="https://www.dardaniadesign.com/images/og-image.png">
 <meta property="og:url" content="https://www.dardaniadesign.com/portfolio.html">
 <meta property="og:locale" content="de_CH">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Portfolio — Dardania Design">
-<meta name="twitter:image" content="https://www.dardaniadesign.com/images/og-image.png">
-
-
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/"><img src="/images/logo-mark.png" alt="" width="34" height="34"><span class="brand-name">Dardania Design</span></a>
-    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+    <a href="/" class="logo">
+      <img src="/images/logo-mark.png" alt="Dardania Design Logo" class="logo-mark">
+      Dardania Design
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+      ☰ <span class="visually-hidden">Menü</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav">
       <a href="/#angebot">Angebot</a>
-      <a href="/#ablauf">Ablauf</a>
       <a href="/portfolio.html">Portfolio</a>
-      <a href="/#zusatz">Zusatzleistungen</a>
       <a href="/#faq">FAQ</a>
       <a href="/#kontakt">Kontakt</a>
-      <a class="btn btn-primary" href="/#kontakt">Projekt starten</a>
     </nav>
-    <button class="nav-toggle" aria-label="Menü öffnen" aria-controls="nav-links" aria-expanded="false">
-      <span></span>
-    </button>
+    <a href="/#kontakt" class="btn btn-primary nav-cta">Kostenlose Beratung</a>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" style="padding-bottom: 1rem;">
+  <section class="hero" style="padding-bottom:1rem;">
     <div class="wrap">
-      <p class="eyebrow">Unsere Arbeiten</p>
-      <h1>Projekte, die <span class="accent">überzeugen</span></h1>
+      <span class="eyebrow">Unsere Arbeiten</span>
+      <h1>Projekte, die überzeugen</h1>
       <p class="lead">Von Logos bis zu kompletten Websites — jedes Projekt erzählt eine Geschichte. Eine Auswahl aus der Schweiz und dem Kosovo.</p>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <div class="portfolio-toolbar" role="group" aria-label="Projekte filtern">
-        <button class="filter-btn" data-filter="all" aria-pressed="true">Alle 11</button>
-        <button class="filter-btn" data-filter="web" aria-pressed="false">Web Design 3</button>
-        <button class="filter-btn" data-filter="branding" aria-pressed="false">Branding &amp; Logo 8</button>
-      </div>
-
       <div class="portfolio-grid">
-        <article class="portfolio-card" data-category="web">
+
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/loco.png" alt="Loco Tapas RestoBar Website" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Web Design · Branding — 2024</p>
             <h3>Loco Tapas RestoBar</h3>
             <p>Ein vollständiges visuelles Erlebnis für ein spanisch-inspiriertes Restaurant in der Schweiz — von der Website bis zur Speisekarte.</p>
-            <a class="link" href="http://www.locotapas.ch" rel="noopener">Projekt ansehen →</a>
+            <a class="link" href="http://www.locotapas.ch" target="_blank" rel="noopener">Projekt ansehen →</a>
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
+          <div class="thumb"><img src="/images/reno.png" alt="Reno Comfort Website" loading="lazy" width="640" height="480"></div>
+          <div class="body">
+            <p class="tag">Web Design — 2024</p>
+            <h3>Reno Comfort</h3>
+            <p>Eine warme, einladende Website für ein Komfort- und Wohnunternehmen in der Schweiz — Design, das Vertrauen schafft.</p>
+            <a class="link" href="http://www.renocomfort.ch" target="_blank" rel="noopener">Projekt ansehen →</a>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="thumb"><img src="/images/behotek.png" alt="Behotek Website" loading="lazy" width="640" height="480"></div>
+          <div class="body">
+            <p class="tag">Web Design — 2024</p>
+            <h3>Behotek</h3>
+            <p>Eine professionelle Website für Behotek — modern, übersichtlich und auf die Zielgruppe zugeschnitten.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/sam.png" alt="SAM'DESIGN Branding" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Print — 2024</p>
@@ -83,7 +91,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/morina.png" alt="Morina SRLS Branding" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Print — 2024</p>
@@ -92,7 +100,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/orgesa1.png" alt="Orgesa Kushaj Branding" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Fashion · Social Media — 2024</p>
@@ -101,17 +109,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="web">
-          <div class="thumb"><img src="/images/reno.png" alt="Reno Comfort Website" loading="lazy" width="640" height="480"></div>
-          <div class="body">
-            <p class="tag">Web Design — 2024</p>
-            <h3>Reno Comfort</h3>
-            <p>Eine warme, einladende Website für ein Komfort- und Wohnunternehmen in der Schweiz — Design, das Vertrauen schafft.</p>
-            <a class="link" href="http://www.renocomfort.ch" rel="noopener">Projekt ansehen →</a>
-          </div>
-        </article>
-
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/nertil.png" alt="Nertil Morina Logo" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Logo — 2024</p>
@@ -120,7 +118,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/qk-logo.png" alt="QK Llakues Industrial Logo" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Print — 2024</p>
@@ -129,7 +127,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/beiqi.png" alt="Beiqi Logo" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Logo — 2024</p>
@@ -138,7 +136,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/flameglass-after.png" alt="Flame Glass Logo nach dem Redesign" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Logo Redesign — 2024</p>
@@ -147,7 +145,7 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="branding">
+        <article class="portfolio-card">
           <div class="thumb"><img src="/images/perfectglass.png" alt="Perfect Glass Cleaner Logo" loading="lazy" width="640" height="480"></div>
           <div class="body">
             <p class="tag">Branding · Logo — 2024</p>
@@ -156,14 +154,6 @@
           </div>
         </article>
 
-        <article class="portfolio-card" data-category="web">
-          <div class="thumb"><img src="/images/behotek.png" alt="Behotek Website" loading="lazy" width="640" height="480"></div>
-          <div class="body">
-            <p class="tag">Web Design — 2024</p>
-            <h3>Behotek</h3>
-            <p>Eine professionelle Website für Behotek — modern, übersichtlich und auf die Zielgruppe zugeschnitten.</p>
-          </div>
-        </article>
       </div>
 
       <div class="stats-strip">
@@ -175,10 +165,10 @@
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="alt">
     <div class="wrap">
       <div class="cta-band">
-        <h2>Dein Projekt könnte das <span class="accent" style="color:#ff8f87;">nächste</span> sein</h2>
+        <h2>Dein Projekt könnte das nächste sein</h2>
         <p>Kostenloses Erstgespräch — kein Risiko, keine Verpflichtung.</p>
         <a class="btn btn-primary" href="/#kontakt">Projekt anfragen →</a>
       </div>
@@ -187,28 +177,17 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <a class="footer-brand" href="/"><img src="/images/logo-mark.png" alt="Dardania Design" width="28" height="28"></a>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/dardaniadesign/" rel="noopener" aria-label="Dardania Design auf Instagram">IG</a>
-        <a href="https://www.facebook.com/dardaniadesign" rel="noopener" aria-label="Dardania Design auf Facebook">FB</a>
-      </div>
-    </div>
-    <div class="footer-links">
+  <div class="wrap footer-row">
+    <span>© <span id="year"></span> Dardania Design. Alle Rechte vorbehalten. Sierre, Schweiz.</span>
+    <nav class="footer-links">
       <a href="/#angebot">Angebot</a>
-      <a href="/portfolio.html">Portfolio</a>
-      <a href="/#kontakt">Kontakt</a>
       <a href="/impressum.html">Impressum</a>
       <a href="/datenschutz.html">Datenschutz</a>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Dardania Design. Alle Rechte vorbehalten.</span>
-      <span>Sierre, Schweiz · Prizren, Kosovo</span>
-    </div>
+      <a href="/agb.html">AGB</a>
+    </nav>
   </div>
 </footer>
 
-<script src="/js/script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
